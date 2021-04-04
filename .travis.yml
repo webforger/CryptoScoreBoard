@@ -6,10 +6,10 @@ services:
 before_install:
   - nvm install node 
 install:
-  - docker-compose up -d &
+  - docker-compose up -d
 before_script:
   - npm install
   - composer install
 script:
   - npx cypress run
-  - php artisan test
+  - ./vendor/bin/phpunit tests
