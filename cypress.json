@@ -4,5 +4,7 @@
     "downloadsFolder" : "tests/cypress/downloads",
     "integrationFolder" : "tests/cypress/integration",
     "screenshotsFolder" : "tests/cypress/screenshots",
-    "videosFolder" : "tests/cypress/videos"
+    "videosFolder" : "tests/cypress/videos",
+    "pluginsFile" : "tests/cypress/plugins/index.js",
+    "supportFile" : "tests/cypress/support/index.js"
 }
