@@ -5,12 +5,19 @@ services:
   - docker
 before_install:
   - nvm install node 
-  - cp .env.test .env
 install:
   - docker-compose up -d
 before_script:
   - npm install
-  - composer install
+  - cp .env.test .env
+  - mkdir bootstrap/cache
+  - mkdir storage
+  - mkdir storage/app
+  - mkdir storage/framework
+  - mkdir storage/framework/sessions
+  - mkdir storage/framework/cache
+  - mkdir storage/framework/views
+  - chmod 777 -R storage
 script:
   - npx cypress run
   - ./vendor/bin/phpunit tests
