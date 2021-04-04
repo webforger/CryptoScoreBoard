@@ -5,6 +5,7 @@ services:
   - docker
 before_install:
   - nvm install node 
+  - cp .env.test .env
 install:
   - docker-compose up -d
 before_script:
