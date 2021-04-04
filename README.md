@@ -17,3 +17,10 @@ Recomanded : add http://cryptoscoreboard.local to /etc/hosts for 127.0.0.1
 ### phpmyadmin
 http://localhost:8080
 See Db access for login informations
+
+## Run end to end tests
+Requires npmw installed on local machine
+Run in headless mode :
+```npx cypress run```
+Run with gui :
+```npx cypress open```
