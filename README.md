@@ -11,8 +11,8 @@ Start docker containers
 - database : test
 
 ### Browser access :
-Default : localhost port 80
-Recomanded : add cryptoscoreboard.local to /etc/hosts
+Default : http://localhost port 80
+Recomanded : add http://cryptoscoreboard.local to /etc/hosts for 127.0.0.1
 
 ### phpmyadmin
 http://localhost:8080
