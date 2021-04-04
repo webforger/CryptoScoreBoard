@@ -1,9 +1,13 @@
 language: php
 php:
   - 7.3
+services:
+  - docker
 install:
-  -docker-compose up -d
+  - docker-compose up -d
 before_script:
   - npm install
+  - composer install
 script:
   - npx cypress run
+  - php artisan test
