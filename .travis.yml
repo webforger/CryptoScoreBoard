@@ -5,12 +5,10 @@ services:
   - docker
 before_install:
   - nvm install node 
-  - cp cypress.travis.json cypress.json
 install:
-  - php artisan serve &
+  - cp .env.test .env
 before_script:
-  - npm install
   - composer install
+  - npm install
 script:
-  - npx cypress run
   - ./vendor/bin/phpunit tests
