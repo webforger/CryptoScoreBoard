@@ -10,7 +10,6 @@ install:
 before_script:
   - npm install
   - chmod -R 777 *
-  - cp .env.test .env
   - mkdir bootstrap/cache
   - mkdir storage
   - mkdir storage/app
