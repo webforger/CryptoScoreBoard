@@ -1,9 +1,0 @@
-language: php
-php:
-  - 7.3
-install:
-  -docker-compose up -d
-before_script:
-  - npm install
-script:
-  - npx cypress run
