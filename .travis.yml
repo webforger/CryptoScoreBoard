@@ -9,7 +9,6 @@ install:
   - docker-compose up -d
 before_script:
   - npm install
-  - chmod -R 777 *
   - mkdir -p storage
   - mkdir -p storage/app
   - mkdir -p storage/framework
@@ -17,6 +16,7 @@ before_script:
   - mkdir -p storage/framework/cache
   - mkdir -p storage/framework/views
   - chmod 777 -R storage
+  - chmod -R 777 *
 script:
   - npx cypress run
   - ./vendor/bin/phpunit tests
