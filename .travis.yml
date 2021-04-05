@@ -6,7 +6,7 @@ services:
 before_install:
   - nvm install node 
 install:
-  - docker-compose up -d
+  - docker-compose up -d web
 before_script:
   - npm install
   - mkdir -p storage
