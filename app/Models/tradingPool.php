@@ -32,4 +32,11 @@ class tradingPool extends Model
     public function reward() {
         return $this->hasOne(tradingReward::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function type() {
+        return $this->hasOne(tradingType::class);
+    }
 }
