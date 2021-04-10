@@ -9,11 +9,12 @@ use App\Models\tradingPool;
 class tradingGoal extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function tradingPool() {
-        return $this->hasOne(tradingPool::class);
+    public function pool() {
+        return $this->belongsTo(tradingPool::class);
     }
 }

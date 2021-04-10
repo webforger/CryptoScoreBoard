@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\tradingPool;
 use App\Models\User;
+use App\Models\TradingGoal;
 
 class tradingPoolSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class tradingPoolSeeder extends Seeder
     {
         tradingPool::factory(10)
         ->has(User::factory()->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
+        ->has(TradingGoal::factory()->count(1), 'goal')
         ->create();
     }
 }
