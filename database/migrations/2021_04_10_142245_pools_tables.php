@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Schema;
 class PoolsTables extends Migration
 {
     CONST DB_TRADING_GOALS_NAME = 'trading_goals';
-    CONST DB_TRADING_PERIODS_NAME = 'trading_periods';
     CONST DB_TRADING_TYPES_NAME = 'trading_types';
+    CONST DB_TRADING_PERIODS_NAME = 'trading_periods';
+    CONST DB_TRADING_REWARDS_NAME = 'trading_rewards';
+    CONST DB_PNL_NAME = 'pnl';
     /**
      * Run the migrations.
      *
@@ -32,9 +34,26 @@ class PoolsTables extends Migration
 
         Schema::create($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
             $table->id();
-            $table->timestemp('period_start');
-            $table->timestemp('period_end';
+            $table->dateTime('period_start');
+            $table->dateTime('period_end');
             $table->unsignedBigInteger('trading_goal_id');
+            $table->timestamps();
+        });
+
+        Schema::create($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
+            $table->id();
+            $table->text('name');
+            $table->longText('description');
+            $table->unsignedBigInteger('trading_pool_id');
+            $table->timestamps();
+        });
+
+        Schema::create($this::DB_PNL_NAME, function (Blueprint $table) {
+            $table->id();
+            $table->double('value');
+            //TODO ADD COIN
+            $table->unsignedBigInteger('trading_pool_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
 
@@ -49,6 +68,15 @@ class PoolsTables extends Migration
         Schema::table($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
             $table->foreign('trading_goal_id')->references('id')->on('trading_goals');
         });
+
+        Schema::table($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
+            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+        });
+
+        Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
+            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -58,6 +86,18 @@ class PoolsTables extends Migration
      */
     public function down()
     {
+        Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
+            $table->dropForeign(['trading_pool_id']);
+            $table->dropColumn('trading_pool_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
+
+        Schema::table($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
+            $table->dropForeign(['trading_pool_id']);
+            $table->dropColumn('trading_pool_id');
+        });
+
         Schema::table($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_goal_id']);
             $table->dropColumn('trading_goal_id');
@@ -75,6 +115,7 @@ class PoolsTables extends Migration
 
         Schema::dropIfExists($this::DB_TRADING_PERIODS_NAME);
         Schema::dropIfExists($this::DB_TRADING_TYPES_NAME);
+        Schema::dropIfExists($this::DB_TRADING_REWARDS_NAME);
         Schema::dropIfExists($this::DB_TRADING_GOALS_NAME);
     }
 }
