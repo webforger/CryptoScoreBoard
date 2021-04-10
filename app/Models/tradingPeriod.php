@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class tradingPeriod extends Model
 {
     use HasFactory;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pool() {
+        return $this->belongsTo(tradingGoal::class);
+    }
 }

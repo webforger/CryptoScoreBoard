@@ -17,4 +17,11 @@ class tradingGoal extends Model
     public function pool() {
         return $this->belongsTo(tradingPool::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function period() {
+        return $this->hasOne(tradingPeriod::class);
+    }
 }

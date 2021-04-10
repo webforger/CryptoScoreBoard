@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\tradingPeriod;
 use App\Models\tradingReward;
 use Illuminate\Database\Seeder;
 use App\Models\tradingPool;
@@ -21,7 +22,7 @@ class tradingPoolSeeder extends Seeder
     {
         tradingPool::factory(10)
         ->has(User::factory()->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
-        ->has(TradingGoal::factory()->count(1), 'goal')
+        ->has(TradingGoal::factory()->has(TradingPeriod::factory()->count(1), 'period')->count(1), 'goal')
         ->has(TradingReward::factory()->count(1), 'reward')
         ->create();
     }
