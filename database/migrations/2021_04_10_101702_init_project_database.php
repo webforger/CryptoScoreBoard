@@ -29,7 +29,7 @@ class InitProjectDatabase extends Migration
 
         Schema::table($this::DB_TRADING_POOLS_USERS_NAME, function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+            $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
         });
     }
 

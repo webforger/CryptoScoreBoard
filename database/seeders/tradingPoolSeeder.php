@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\pnl;
 use App\Models\tradingPeriod;
 use App\Models\tradingReward;
 use App\Models\tradingType;

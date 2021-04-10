@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tradingReward extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

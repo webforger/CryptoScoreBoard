@@ -4,13 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PoolsTables extends Migration
+class PoolsTables extends InitProjectDatabase
 {
     CONST DB_TRADING_GOALS_NAME = 'trading_goals';
     CONST DB_TRADING_TYPES_NAME = 'trading_types';
     CONST DB_TRADING_PERIODS_NAME = 'trading_periods';
     CONST DB_TRADING_REWARDS_NAME = 'trading_rewards';
-    CONST DB_PNL_NAME = 'pnl';
+    CONST DB_PNL_NAME = 'pnls';
     /**
      * Run the migrations.
      *
@@ -51,30 +51,28 @@ class PoolsTables extends Migration
             $table->id();
             $table->double('value');
             //TODO ADD COIN
-            $table->unsignedBigInteger('trading_pool_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('trading_pool_user_id');
             $table->timestamps();
         });
 
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
-            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+            $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
         });
 
         Schema::table($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
-            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+            $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
         });
 
         Schema::table($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
-            $table->foreign('trading_goal_id')->references('id')->on('trading_goals');
+            $table->foreign('trading_goal_id')->references('id')->on($this::DB_TRADING_GOALS_NAME);
         });
 
         Schema::table($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
-            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
+            $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
         });
 
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
-            $table->foreign('trading_pool_id')->references('id')->on('trading_pools');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('trading_pool_user_id')->references('id')->on($this::DB_TRADING_POOLS_USERS_NAME);
         });
     }
 
