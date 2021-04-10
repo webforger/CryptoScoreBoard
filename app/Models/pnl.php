@@ -10,10 +10,4 @@ class pnl extends Model
     use HasFactory;
     public $timestamps = false;
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 }

@@ -11,6 +11,7 @@ class PoolsTables extends InitProjectDatabase
     CONST DB_TRADING_PERIODS_NAME = 'trading_periods';
     CONST DB_TRADING_REWARDS_NAME = 'trading_rewards';
     CONST DB_PNL_NAME = 'pnls';
+    CONST DB_TRADES_NAME = 'trades';
     /**
      * Run the migrations.
      *
@@ -55,6 +56,15 @@ class PoolsTables extends InitProjectDatabase
             $table->timestamps();
         });
 
+        Schema::create($this::DB_TRADES_NAME, function (Blueprint $table) {
+            $table->id();
+            $table->double('value');
+            //TODO ADD COIN
+            $table->unsignedBigInteger('trading_pool_id');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
+        });
+
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
         });
@@ -74,6 +84,11 @@ class PoolsTables extends InitProjectDatabase
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_user_id')->references('id')->on($this::DB_TRADING_POOLS_USERS_NAME);
         });
+
+        Schema::table($this::DB_TRADES_NAME, function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
+        });
     }
 
     /**
@@ -83,11 +98,16 @@ class PoolsTables extends InitProjectDatabase
      */
     public function down()
     {
-        Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
-            $table->dropForeign(['trading_pool_id']);
-            $table->dropColumn('trading_pool_id');
+        Schema::table($this::DB_TRADES_NAME, function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['trading_pool_id']);
             $table->dropColumn('user_id');
+            $table->dropColumn('trading_pool_id');
+        });
+
+        Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
+            $table->dropForeign(['trading_pool_user_id']);
+            $table->dropColumn('trading_pool_user_id');
         });
 
         Schema::table($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
@@ -114,5 +134,7 @@ class PoolsTables extends InitProjectDatabase
         Schema::dropIfExists($this::DB_TRADING_TYPES_NAME);
         Schema::dropIfExists($this::DB_TRADING_REWARDS_NAME);
         Schema::dropIfExists($this::DB_TRADING_GOALS_NAME);
+        Schema::dropIfExists($this::DB_TRADES_NAME);
+        Schema::dropIfExists($this::DB_PNL_NAME);
     }
 }

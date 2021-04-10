@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\tradingPool;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\tradingPool;
 
 class User extends Authenticatable
 {
@@ -45,9 +45,16 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function tradingPools()
+    public function pool()
     {
         return $this->belongsToMany(tradingPool::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function trades() {
+        return $this->hasMany(trade::class);
     }
 
 }

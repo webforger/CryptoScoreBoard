@@ -16,7 +16,8 @@ class tradingPool extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withPivot('pnl_id', 'trade_id');
     }
 
     /**
@@ -38,5 +39,12 @@ class tradingPool extends Model
      */
     public function type() {
         return $this->hasOne(tradingType::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function trades() {
+        return $this->hasMany(trade::class);
     }
 }
