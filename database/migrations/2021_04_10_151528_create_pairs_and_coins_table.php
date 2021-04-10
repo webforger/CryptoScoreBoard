@@ -8,6 +8,7 @@ class CreatePairsTable extends Migration
 {
     CONST DB_PAIRS_NAME = 'pairs';
     CONST DB_COINS_NAME = 'coins';
+
     /**
      * Run the migrations.
      *
@@ -21,11 +22,15 @@ class CreatePairsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table($this::DB_PAIRS_NAME, function (Blueprint $table) {
-            $table->foreign('coin1')->references('id')->on($this::DB_COINS_NAME);
+        Schema::create($this::DB_COINS_NAME, function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('alias');
+            $table->timestamps();
         });
 
         Schema::table($this::DB_PAIRS_NAME, function (Blueprint $table) {
+            $table->foreign('coin1')->references('id')->on($this::DB_COINS_NAME);
             $table->foreign('coin2')->references('id')->on($this::DB_COINS_NAME);
         });
     }
@@ -44,6 +49,7 @@ class CreatePairsTable extends Migration
             $table->dropColumn('coin2');
         });
 
-        Schema::dropIfExists('pairs');
+        Schema::dropIfExists($this::DB_PAIRS_NAME);
+        Schema::dropIfExists($this::DB_COINS_NAME);
     }
 }

@@ -9,6 +9,9 @@ class Coin extends Model
 {
     use HasFactory;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function pairs()
     {
         return $this->belongsTo(Pair::class);
