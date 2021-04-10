@@ -25,4 +25,11 @@ class tradingPool extends Model
     public function goal() {
         return $this->hasOne(tradingGoal::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function reward() {
+        return $this->hasOne(tradingReward::class);
+    }
 }

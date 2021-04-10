@@ -45,7 +45,6 @@ class PoolsTables extends Migration
             $table->text('name');
             $table->longText('description');
             $table->unsignedBigInteger('trading_pool_id');
-            $table->timestamps();
         });
 
         Schema::create($this::DB_PNL_NAME, function (Blueprint $table) {
