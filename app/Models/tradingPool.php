@@ -9,6 +9,7 @@ use App\Models\tradingGoal;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use phpDocumentor\Reflection\Types\Integer;
 
 class tradingPool extends Model
 {
@@ -28,6 +29,14 @@ class tradingPool extends Model
     public function poolUsers() : HasMany
     {
         return $this->hasMany(tradingPoolUser::class);
+    }
+
+    /**
+     * @return int
+     */
+    public function poolUsersCount() : int
+    {
+        return $this->poolUsers->count();
     }
 
     /**
