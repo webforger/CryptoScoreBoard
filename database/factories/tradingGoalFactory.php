@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Coin;
 use App\Models\tradingGoal;
+use App\Models\tradingPeriod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class tradingGoalFactory extends Factory
@@ -24,7 +26,11 @@ class tradingGoalFactory extends Factory
     public function definition()
     {
         return [
-            'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX)
+            'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX),
+            'trading_period_id' => function () {
+                return tradingPeriod::factory()->create()->id;
+            },
+            'coin_id' => Coin::all()->random()->id
         ];
     }
 }

@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\tradingGoal;
 use App\Models\tradingPool;
+use App\Models\tradingReward;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class tradingPoolFactory extends Factory
@@ -23,6 +25,12 @@ class tradingPoolFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
+            'trading_reward_id' => function () {
+                return tradingReward::factory()->create()->id;
+            },
+            'trading_goal_id' => function () {
+                return tradingGoal::factory()->create()->id;
+            },
         ];
     }
 }

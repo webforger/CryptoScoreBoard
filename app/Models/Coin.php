@@ -9,6 +9,7 @@ class Coin extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'alias'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

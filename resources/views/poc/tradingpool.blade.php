@@ -17,13 +17,14 @@
                     </div>
                     <div class="card-body">
                         Incredible battle between people with money
+                        {{ $tradingPool->reward->description }}
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Participants ({{ $tradingPool->poolUsersCount() }} )</h1>
+            <h1 class="h3 mb-0 text-gray-800">Participants ({{ $tradingPool->poolUsersCount() }})</h1>
         </div>
 
         @foreach ($tradingPool->poolUsers->chunk(2) as $tradingPoolUserChunk)

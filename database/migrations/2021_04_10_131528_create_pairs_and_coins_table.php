@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Coin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -35,6 +36,11 @@ class CreatePairsAndCoinsTable extends Migration
             $table->foreign('coin1')->references('id')->on($this::DB_COINS_NAME);
             $table->foreign('coin2')->references('id')->on($this::DB_COINS_NAME);
         });
+
+        Coin::create([
+            'name' => 'USD',
+            'alias' => 'USD'
+        ]);
     }
 
     /**

@@ -24,31 +24,15 @@ class tradingPoolSeeder extends Seeder
      */
     public function run()
     {
-        tradingPool::factory(10)
-        ->has(
-            User::factory()
-                ->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users'
-        )
-        ->has(
-            tradingGoal::factory()
-                ->has(
-                    tradingPeriod::factory()
-                    ->count(1), 'period'
-                )
-                ->count(1), 'goal')
-        ->has(
-            tradingReward::factory()
-                ->count(1), 'reward'
-        )
-        ->has(
-            tradingType::factory()
-                ->count(1), 'type'
-        )
-        ->create();
 
-        trade::factory(100)
+        $tradingPool = tradingPool::factory()
+            ->has(User::factory()->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
+            ->create();
+
+        /**trade::factory(100)
             ->count(100)
             ->create();
+         * */
 
     }
 }
