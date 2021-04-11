@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use app\Models\User;
 use App\Models\tradingGoal;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -42,22 +43,22 @@ class tradingPool extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function goal() : HasOne {
-        return $this->hasOne(tradingGoal::class);
+    public function tradingGoal() : HasOne {
+        return $this->hasOne(tradingGoal::class, 'id', 'trading_goal_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function reward() : hasOne {
-        return $this->hasOne(tradingReward::class);
+    public function tradingReward() : HasOne {
+        return $this->hasOne(tradingReward::class, 'id', 'trading_reward_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function type() : hasOne {
-        return $this->hasOne(tradingType::class);
+    public function tradingType() : hasOne {
+        return $this->hasOne(tradingType::class, 'id', 'trading_type_id');;
     }
 
 }

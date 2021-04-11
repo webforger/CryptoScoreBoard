@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class tradingReward extends Model
 {
@@ -14,7 +15,7 @@ class tradingReward extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function pool() : BelongsTo {
+    public function tradingPool() : BelongsTo {
         return $this->belongsTo(tradingPool::class);
     }
 }

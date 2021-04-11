@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Coin;
 use App\Models\pnl;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

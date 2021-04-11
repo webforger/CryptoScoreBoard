@@ -5,25 +5,44 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Cards</h1>
+            <h1 class="h3 mb-0 text-gray-800">Pool - {{ $tradingPool->name }}</h1>
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <!-- Basic Card Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">{{ $tradingPool->name }}</h6>
-                    </div>
-                    <div class="card-body">
-                        Incredible battle between people with money
+            @if ($tradingPool->tradingGoal())
+                <div class="col-lg-8">
+                    <!-- Basic Card Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Goal</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>First to <b>{{ $tradingPool->tradingGoal->value }}</b> {{ $tradingPool->tradingGoal->coin->name }}</p>
+                            <p>Pools start at <b>{{ $tradingPool->tradingGoal->tradingPeriod->period_start }}</b> and ends at <b>{{ $tradingPool->tradingGoal->tradingPeriod->period_end }}</b></p>
+                            <p>Type <b>{{ $tradingPool->tradingType->name }}</b></p>
+                            <p>Allowed Pairs <b>{{ $tradingPool->tradingType->pair->ticker() }}</b></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
+
+            @if ($tradingPool->tradingReward())
+                <div class="col-lg-4">
+                    <!-- Basic Card Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Reward - {{ $tradingPool->tradingReward->name }}</h6>
+                        </div>
+                        <div class="card-body">
+                            {{ $tradingPool->tradingReward->description }}
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Participants ({{ $tradingPool->poolUsersCount() }} )</h1>
+            <h1 class="h3 mb-0 text-gray-800">Participants ({{ $tradingPool->poolUsersCount() }})</h1>
         </div>
 
         @foreach ($tradingPool->poolUsers->chunk(2) as $tradingPoolUserChunk)
