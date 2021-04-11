@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\tradingPool;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -40,4 +43,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function pool() : BelongsToMany
+    {
+        return $this->belongsToMany(tradingPool::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function poolUser() : HasMany {
+        return $this->hasMany();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function trades() : HasMany {
+        return $this->hasMany(trade::class);
+    }
+
 }
