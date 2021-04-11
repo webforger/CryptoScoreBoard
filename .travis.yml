@@ -6,15 +6,15 @@ services:
 before_install:
   - nvm install node
   - mysql -e 'CREATE DATABASE testci;'
-install:
   - cp .env.travis .env
   - rm .cypress.json
   - cp .cypress.json.travis .cypress.json
-before_script:
+install:
   - composer install
   - php artisan migrate
   - php artisan db:seed
   - npm install
+before_script:
   - php artisan serve &
 script:
   - ./vendor/bin/phpunit tests
