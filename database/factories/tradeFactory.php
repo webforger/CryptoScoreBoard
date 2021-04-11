@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\trade;
 use App\Models\tradingPool;
+use App\Models\tradingPoolUser;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,8 +28,7 @@ class tradeFactory extends Factory
     {
         return [
             'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX),
-            'user_id' => User::all()->random()->id,
-            'trading_pool_id' => tradingPool::all()->random()->id,
+            'trading_pool_user_id' => tradingPoolUser::all()->random()->id,
         ];
     }
 }

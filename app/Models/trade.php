@@ -12,14 +12,8 @@ class trade extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user() {
+    public function tradingPoolUser() {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function pools() {
-        return $this->belongsTo(tradingPool::class);
-    }
 }
