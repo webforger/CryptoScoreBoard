@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class tradingPoolUser extends Pivot
@@ -34,5 +34,13 @@ class tradingPoolUser extends Pivot
     public function pool() : belongsTo
     {
         return $this->belongsTo(tradingPool::class);
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function pnl() : hasOne
+    {
+        return $this->hasOne(pnl::class);
     }
 }
