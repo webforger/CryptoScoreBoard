@@ -1,7 +1,11 @@
 describe('index', () => {
-    it('Open Documentation', () => {
+    it('View tradingPools', () => {
       cy.visit('/');
-      cy.contains('Logo').click();
-      cy.url().should('include', 'home');
+    })
+
+    it('View one tradingPool', () => {
+        cy.visit('/');
+        cy.contains('View pool').click();
+        cy.url().should('include', 'trading-pool/');
     })
   })
