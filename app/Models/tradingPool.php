@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use app\Models\User;
 use App\Models\tradingGoal;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class tradingPool extends Model
 {
@@ -14,10 +15,9 @@ class tradingPool extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users()
+    public function users() : BelongsToMany
     {
-        return $this->belongsToMany(User::class)
-            ->withPivot('pnl_id', 'trade_id');
+        return $this->belongsToMany(User::class);
     }
 
     /**

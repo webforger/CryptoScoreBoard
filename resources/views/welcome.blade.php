@@ -128,5 +128,36 @@
                 </div>
             </div>
         </div>
+
+    @foreach ($tradingPools as $tradingPool)
+        <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg">
+            <h1>{{ $tradingPool->name }}</h1>
+            <h2>Users</h2>
+            <ul>
+                @foreach ($tradingPool->users() as $tradingPoolUser)
+                    <li>{{$tradingPoolUser->name}} {{$tradingPoolUser->firstname}}</li>
+                @endforeach
+            </ul>
+            <h2>Trades</h2>
+            @foreach ($tradingPool->trades as $trade)
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trade</th>
+                        <th>User</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $trade->id }}</td>
+                        <td>{{ $trade->user->name }}</td>
+                        <td>{{ $trade->value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            @endforeach
+        </div>
+    @endforeach
     </body>
 </html>

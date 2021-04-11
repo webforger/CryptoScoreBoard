@@ -10,16 +10,16 @@ class trade extends Model
     use HasFactory;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user() {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function pools() {
-        return $this->belongsToMany(tradingPool::class);
+        return $this->belongsTo(tradingPool::class);
     }
 }

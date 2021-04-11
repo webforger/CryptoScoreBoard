@@ -46,8 +46,8 @@ class tradingPoolSeeder extends Seeder
         )
         ->create();
 
-        trade::factory(10)
-            ->count(5)
+        trade::factory(100)
+            ->count(100)
             ->create();
 
     }
