@@ -11,6 +11,7 @@ class tradingType extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['pair_id','name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

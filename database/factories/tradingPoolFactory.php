@@ -32,9 +32,7 @@ class tradingPoolFactory extends Factory
             'trading_goal_id' => function () {
                 return tradingGoal::factory()->create()->id;
             },
-            'trading_type_id' => function () {
-                return tradingType::factory()->create()->id;
-            },
+            'trading_type_id' => tradingType::all()->random()->id,
         ];
     }
 }
