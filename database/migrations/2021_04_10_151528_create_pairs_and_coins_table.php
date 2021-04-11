@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePairsTable extends Migration
+class CreatePairsAndCoinsTable extends Migration
 {
     CONST DB_PAIRS_NAME = 'pairs';
     CONST DB_COINS_NAME = 'coins';
@@ -19,6 +19,8 @@ class CreatePairsTable extends Migration
         Schema::create($this::DB_PAIRS_NAME, function (Blueprint $table) {
             $table->id();
             $table->double('value');
+            $table->unsignedBigInteger('coin1');
+            $table->unsignedBigInteger('coin2');
             $table->timestamps();
         });
 
