@@ -11,7 +11,7 @@ use Database\Factories\tradeFactory;
 use Illuminate\Database\Seeder;
 use App\Models\tradingPool;
 use App\Models\User;
-use App\Models\TradingGoal;
+use App\Models\tradingGoal;
 
 class tradingPoolSeeder extends Seeder
 {
@@ -32,7 +32,7 @@ class tradingPoolSeeder extends Seeder
         ->has(
             tradingGoal::factory()
                 ->has(
-                    TradingPeriod::factory()
+                    tradingPeriod::factory()
                     ->count(1), 'period'
                 )
                 ->count(1), 'goal')
