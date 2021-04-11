@@ -1,5 +1,7 @@
 # CryptoScoreBoard
 
+[![Build Status](https://travis-ci.com/webforger/CryptoScoreBoard.svg?branch=master)](https://travis-ci.org/webforger/CryptoScoreBoard)
+
 ## Local setup with docker
 Start docker containers
 ```docker-compose up -d```
