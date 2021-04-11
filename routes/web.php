@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\tradingPool;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('poc/index')
-        ->with('tradingPools', \App\Models\tradingPool::all());
+        ->with('tradingPools', tradingPool::all())
+        ->with('tradingPoolsCount', tradingPool::count())
+        ->with('tradingPoolsUsersCount', \App\Models\tradingPoolUser::count());
 });
 
 Route::get('/trading-pool/{id}', function ($id) {
     return view('poc/tradingpool')
-        ->with('tradingPool', \App\Models\tradingPool::findOrFail($id));
+        ->with('tradingPool', tradingPool::findOrFail($id));
 });
 
 Route::get('/cards', function () {
