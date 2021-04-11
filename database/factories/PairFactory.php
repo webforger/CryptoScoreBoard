@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Coin;
 use App\Models\Pair;
-use App\Models\tradingType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class tradingTypeFactory extends Factory
+class PairFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = tradingType::class;
+    protected $model = Pair::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,9 @@ class tradingTypeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'pair_id' => function () {
-                return Pair::factory()->create()->id;
-            },
+            'coin1' => Coin::all()->random()->id,
+            'coin2' => Coin::all()->random()->id,
+            'value' => $this->faker->numberBetween(1, 100)
         ];
     }
 }

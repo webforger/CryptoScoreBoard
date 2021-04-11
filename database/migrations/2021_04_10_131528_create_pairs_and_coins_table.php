@@ -38,8 +38,13 @@ class CreatePairsAndCoinsTable extends Migration
         });
 
         Coin::create([
-            'name' => 'USD',
+            'name' => 'United States Dollar',
             'alias' => 'USD'
+        ]);
+
+        Coin::create([
+            'name' => 'Euro',
+            'alias' => 'EUR'
         ]);
     }
 

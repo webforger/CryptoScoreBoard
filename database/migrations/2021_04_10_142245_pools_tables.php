@@ -65,13 +65,16 @@ class PoolsTables extends InitProjectDatabase
         });
 
         Schema::table($this::DB_TRADING_POOLS_NAME, function (Blueprint $table) {
-            $table->unsignedBigInteger('trading_period_id')->nullable();
             $table->unsignedBigInteger('trading_reward_id')->nullable();
             $table->unsignedBigInteger('trading_type_id')->nullable();
             $table->unsignedBigInteger('trading_goal_id')->nullable();
         });
 
         // Add foreign keys
+        Schema::table($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
+            $table->foreign('pair_id')->references('id')->on($this::DB_PAIRS_NAME);
+        });
+
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
             $table->foreign('trading_period_id')->references('id')->on($this::DB_TRADING_PERIODS_NAME);
         });

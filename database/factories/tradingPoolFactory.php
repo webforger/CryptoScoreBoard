@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\tradingGoal;
 use App\Models\tradingPool;
 use App\Models\tradingReward;
+use App\Models\tradingType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class tradingPoolFactory extends Factory
@@ -30,6 +31,9 @@ class tradingPoolFactory extends Factory
             },
             'trading_goal_id' => function () {
                 return tradingGoal::factory()->create()->id;
+            },
+            'trading_type_id' => function () {
+                return tradingType::factory()->create()->id;
             },
         ];
     }
