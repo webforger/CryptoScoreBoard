@@ -136,6 +136,7 @@
             <div class="mt-3">
                 @foreach ($tradingPool->poolUsers as $tradingPoolUser)
                     <h3>{{$tradingPoolUser->user->name}}</h3>
+                    <p>PNL : {{$tradingPoolUser->pnl->value ?? 'not yet' }}</p>
                     <h3>Trades</h3>
                     @foreach ($tradingPoolUser->trades as $trade)
                         <li>{{$trade->value}}</li>

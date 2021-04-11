@@ -41,6 +41,6 @@ class tradingPoolUser extends Pivot
      */
     public function pnl() : hasOne
     {
-        return $this->hasOne(pnl::class);
+        return $this->hasOne(pnl::class, 'trading_pool_user_id');
     }
 }
