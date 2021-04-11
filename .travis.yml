@@ -14,5 +14,7 @@ before_script:
   - php artisan migrate
   - php artisan db:seed
   - npm install
+  - php artisan serve &
 script:
   - ./vendor/bin/phpunit tests
+  - npx cypress run
