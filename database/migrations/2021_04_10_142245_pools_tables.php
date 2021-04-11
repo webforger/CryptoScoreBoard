@@ -52,7 +52,6 @@ class PoolsTables extends InitProjectDatabase
             $table->id();
             $table->double('value');
             $table->unsignedBigInteger('trading_pool_user_id');
-            $table->unsignedBigInteger('coin_id');
             $table->timestamps();
         });
 
@@ -77,6 +76,7 @@ class PoolsTables extends InitProjectDatabase
 
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
             $table->foreign('trading_period_id')->references('id')->on($this::DB_TRADING_PERIODS_NAME);
+            $table->foreign('coin_id')->references('id')->on($this::DB_COINS_NAME);
         });
 
         Schema::table($this::DB_TRADING_POOLS_NAME, function (Blueprint $table) {
@@ -87,7 +87,6 @@ class PoolsTables extends InitProjectDatabase
 
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_user_id')->references('id')->on($this::DB_TRADING_POOLS_USERS_NAME);
-            $table->foreign('coin_id')->references('id')->on($this::DB_COINS_NAME);
         });
 
         Schema::table($this::DB_TRADES_NAME, function (Blueprint $table) {
@@ -107,34 +106,27 @@ class PoolsTables extends InitProjectDatabase
             $table->dropForeign(['trading_pool_user_id']);
             $table->dropForeign(['pair_id']);
             $table->dropColumn('trading_pool_user_id');
+            $table->dropColumn('pair_id');
         });
 
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_pool_user_id']);
-            $table->dropForeign(['coin_id']);
             $table->dropColumn('trading_pool_user_id');
         });
 
-        Schema::table($this::DB_TRADING_REWARDS_NAME, function (Blueprint $table) {
-            $table->dropForeign(['trading_pool_id']);
-            $table->dropColumn('trading_pool_id');
-        });
-
-        Schema::table($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
-            $table->dropForeign(['trading_goal_id']);
-            $table->dropColumn('trading_goal_id');
-        });
-
-        Schema::table($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
-            $table->dropForeign(['trading_pool_id']);
-            $table->dropForeign(['pair_id']);
-            $table->dropColumn('trading_pool_id');
-        });
-
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
-            $table->dropForeign(['trading_pool_id']);
+            $table->dropForeign(['trading_period_id']);
             $table->dropForeign(['coin_id']);
-            $table->dropColumn('trading_pool_id');
+            $table->dropColumn('coin_id');
+        });
+
+        Schema::table($this::DB_TRADING_POOLS_NAME, function (Blueprint $table) {
+            $table->dropForeign(['trading_reward_id']);
+            $table->dropForeign(['trading_type_id']);
+            $table->dropForeign(['trading_goal_id']);
+            $table->dropColumn('trading_reward_id');
+            $table->dropColumn('trading_type_id');
+            $table->dropColumn('trading_goal_id');
         });
 
         Schema::dropIfExists($this::DB_TRADING_PERIODS_NAME);

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Pair;
 use App\Models\trade;
 use App\Models\tradingPool;
 use App\Models\tradingPoolUser;
@@ -29,6 +30,7 @@ class tradeFactory extends Factory
         return [
             'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX),
             'trading_pool_user_id' => tradingPoolUser::all()->random()->id,
+            'pair_id' => Pair::all()->random()->id,
         ];
     }
 }

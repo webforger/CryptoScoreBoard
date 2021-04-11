@@ -24,9 +24,7 @@ class tradingTypeFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'pair_id' => function () {
-                return Pair::factory()->create()->id;
-            },
+            'pair_id' => Pair::all()->random()->id
         ];
     }
 }

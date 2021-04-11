@@ -9,6 +9,7 @@ class Pair extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','coin1', 'coin2'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

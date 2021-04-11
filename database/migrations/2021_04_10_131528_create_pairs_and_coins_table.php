@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Coin;
+use App\Models\Pair;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,6 @@ class CreatePairsAndCoinsTable extends Migration
     {
         Schema::create($this::DB_PAIRS_NAME, function (Blueprint $table) {
             $table->id();
-            $table->double('value');
             $table->unsignedBigInteger('coin1');
             $table->unsignedBigInteger('coin2');
             $table->timestamps();
@@ -37,14 +37,19 @@ class CreatePairsAndCoinsTable extends Migration
             $table->foreign('coin2')->references('id')->on($this::DB_COINS_NAME);
         });
 
-        Coin::create([
+        $coinFrom = Coin::create([
             'name' => 'United States Dollar',
             'alias' => 'USD'
         ]);
 
-        Coin::create([
+        $coinTo = Coin::create([
             'name' => 'Euro',
             'alias' => 'EUR'
+        ]);
+
+        Pair::create([
+            'coin1' => $coinFrom->id,
+            'coin2' => $coinTo->id
         ]);
     }
 
