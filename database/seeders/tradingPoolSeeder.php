@@ -30,18 +30,18 @@ class tradingPoolSeeder extends Seeder
                 ->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users'
         )
         ->has(
-            TradingGoal::factory()
+            tradingGoal::factory()
                 ->has(
                     TradingPeriod::factory()
                     ->count(1), 'period'
                 )
                 ->count(1), 'goal')
         ->has(
-            TradingReward::factory()
+            tradingReward::factory()
                 ->count(1), 'reward'
         )
         ->has(
-            TradingType::factory()
+            tradingType::factory()
                 ->count(1), 'type'
         )
         ->create();
