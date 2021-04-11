@@ -12,6 +12,9 @@ class PoolsTables extends InitProjectDatabase
     CONST DB_TRADING_REWARDS_NAME = 'trading_rewards';
     CONST DB_PNL_NAME = 'pnls';
     CONST DB_TRADES_NAME = 'trades';
+    CONST DB_COINS_NAME = 'coins';
+    CONST DB_PAIRS_NAME = 'pairs';
+
     /**
      * Run the migrations.
      *
@@ -23,14 +26,14 @@ class PoolsTables extends InitProjectDatabase
             $table->id();
             $table->double('value');
             $table->unsignedBigInteger('trading_pool_id');
-            // TODO ADD COIN
+            $table->unsignedBigInteger('coin_id');
         });
 
         Schema::create($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
             $table->id();
             $table->text('name');
             $table->unsignedBigInteger('trading_pool_id');
-            // TODO ADD PAIR
+            $table->unsignedBigInteger('pair_id');
         });
 
         Schema::create($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
@@ -51,25 +54,27 @@ class PoolsTables extends InitProjectDatabase
         Schema::create($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->id();
             $table->double('value');
-            //TODO ADD COIN
             $table->unsignedBigInteger('trading_pool_user_id');
+            $table->unsignedBigInteger('coin_id');
             $table->timestamps();
         });
 
         Schema::create($this::DB_TRADES_NAME, function (Blueprint $table) {
             $table->id();
             $table->double('value');
-            //TODO ADD COIN
             $table->unsignedBigInteger('trading_pool_user_id');
+            $table->unsignedBigInteger('pair_id');
             $table->timestamps();
         });
 
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
+            $table->foreign('coin_id')->references('id')->on($this::DB_COINS_NAME);
         });
 
         Schema::table($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_id')->references('id')->on($this::DB_TRADING_POOLS_NAME);
+            $table->foreign('pair_id')->references('id')->on($this::DB_PAIRS_NAME);
         });
 
         Schema::table($this::DB_TRADING_PERIODS_NAME, function (Blueprint $table) {
@@ -82,10 +87,12 @@ class PoolsTables extends InitProjectDatabase
 
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_user_id')->references('id')->on($this::DB_TRADING_POOLS_USERS_NAME);
+            $table->foreign('coin_id')->references('id')->on($this::DB_COINS_NAME);
         });
 
         Schema::table($this::DB_TRADES_NAME, function (Blueprint $table) {
             $table->foreign('trading_pool_user_id')->references('id')->on($this::DB_TRADING_POOLS_USERS_NAME);
+            $table->foreign('pair_id')->references('id')->on($this::DB_PAIRS_NAME);
         });
     }
 
@@ -98,11 +105,13 @@ class PoolsTables extends InitProjectDatabase
     {
         Schema::table($this::DB_TRADES_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_pool_user_id']);
+            $table->dropForeign(['pair_id']);
             $table->dropColumn('trading_pool_user_id');
         });
 
         Schema::table($this::DB_PNL_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_pool_user_id']);
+            $table->dropForeign(['coin_id']);
             $table->dropColumn('trading_pool_user_id');
         });
 
@@ -118,11 +127,13 @@ class PoolsTables extends InitProjectDatabase
 
         Schema::table($this::DB_TRADING_TYPES_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_pool_id']);
+            $table->dropForeign(['pair_id']);
             $table->dropColumn('trading_pool_id');
         });
 
         Schema::table($this::DB_TRADING_GOALS_NAME, function (Blueprint $table) {
             $table->dropForeign(['trading_pool_id']);
+            $table->dropForeign(['coin_id']);
             $table->dropColumn('trading_pool_id');
         });
 
