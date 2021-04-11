@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')
+        ->with('tradingPools', \App\Models\tradingPool::all());
 });

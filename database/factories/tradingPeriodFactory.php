@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\tradingPool;
+use App\Models\tradingPeriod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class tradingPoolFactory extends Factory
+class tradingPeriodFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = tradingPool::class;
+    protected $model = tradingPeriod::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,8 @@ class tradingPoolFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'period_start' => $this->faker->dateTimeBetween('+0 days', '+1 months'),
+            'period_end' => $this->faker->dateTimeBetween('+1 days', '+2 months'),
         ];
     }
 }

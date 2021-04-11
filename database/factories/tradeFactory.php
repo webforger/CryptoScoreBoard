@@ -2,17 +2,22 @@
 
 namespace Database\Factories;
 
+use App\Models\trade;
 use App\Models\tradingPool;
+use App\Models\tradingPoolUser;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class tradingPoolFactory extends Factory
+class tradeFactory extends Factory
 {
+    CONST VALUE_MIN = -100;
+    CONST VALUE_MAX = 100;
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = tradingPool::class;
+    protected $model = trade::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +27,8 @@ class tradingPoolFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX),
+            'trading_pool_user_id' => tradingPoolUser::all()->random()->id,
         ];
     }
 }
