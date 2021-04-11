@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Models\tradingPool;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/', function () {
     return view('poc/index')
@@ -28,4 +31,8 @@ Route::get('/trading-pool/{id}', function ($id) {
 
 Route::get('/cards', function () {
     return view('poc/cards');
-});
+})->middleware('auth');;
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
