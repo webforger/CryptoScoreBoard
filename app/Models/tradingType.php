@@ -23,6 +23,6 @@ class tradingType extends Model
      * @return HasOne
      */
     public function pair() : HasOne {
-        return $this->hasOne(Pair::class);
+        return $this->hasOne(Pair::class, 'id', 'pair_id');
     }
 }

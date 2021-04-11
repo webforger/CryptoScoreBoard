@@ -23,7 +23,14 @@ class tradingGoal extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function period() : hasOne {
-        return $this->hasOne(tradingPeriod::class);
+    public function tradingPeriod() : hasOne {
+        return $this->hasOne(tradingPeriod::class, 'id', 'trading_period_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function coin() : hasOne {
+        return $this->hasOne(Coin::class, 'id', 'coin_id');
     }
 }

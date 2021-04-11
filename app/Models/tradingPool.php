@@ -43,7 +43,7 @@ class tradingPool extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function goal() : HasOne {
+    public function tradingGoal() : HasOne {
         return $this->hasOne(tradingGoal::class, 'id', 'trading_goal_id');
     }
 
@@ -57,7 +57,7 @@ class tradingPool extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function type() : hasOne {
+    public function tradingType() : hasOne {
         return $this->hasOne(tradingType::class, 'id', 'trading_type_id');;
     }
 

@@ -12,16 +12,23 @@ class Pair extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function coin1()
+    public function coinFrom()
     {
-        return $this->hasOne('coin1');
+        return $this->hasOne(Coin::class, 'id', 'coin1');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function coin2()
+    public function coinTo()
     {
-        return $this->hasOne('coin2');
+        return $this->hasOne(Coin::class, 'id', 'coin2');
+    }
+
+    /**
+     * @return string
+     */
+    public function ticker() : string {
+        return $this->coinFrom->alias . '/' . $this->coinTo->alias;
     }
 }

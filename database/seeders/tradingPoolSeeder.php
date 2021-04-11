@@ -25,14 +25,13 @@ class tradingPoolSeeder extends Seeder
     public function run()
     {
 
-        $tradingPool = tradingPool::factory()
+        $tradingPool = tradingPool::factory(5)
             ->has(User::factory()->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
             ->create();
 
-        /**trade::factory(100)
+        trade::factory(100)
             ->count(100)
             ->create();
-         * */
 
     }
 }
