@@ -7,8 +7,8 @@ before_install:
   - nvm install node
   - mysql -e 'CREATE DATABASE testci;'
   - cp .env.travis .env
-  - rm .cypress.json
-  - cp .cypress.json.travis .cypress.json
+  - rm cypress.json
+  - cp cypress.json.travis cypress.json
 install:
   - composer install
   - php artisan migrate
