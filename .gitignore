@@ -15,3 +15,4 @@ npm-debug.log
 yarn-error.log
 tests/cypress/videos/*
 .docker-compose.yml
+.idea/

@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\tradingPool;
+use App\Models\tradingGoal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class tradingPoolFactory extends Factory
+class tradingGoalFactory extends Factory
 {
+    CONST VALUE_MIN = 100;
+    CONST VALUE_MAX = 20000;
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = tradingPool::class;
+    protected $model = tradingGoal::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +24,7 @@ class tradingPoolFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'value' => $this->faker->numberBetween($this::VALUE_MIN, $this::VALUE_MAX)
         ];
     }
 }
