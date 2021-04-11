@@ -62,7 +62,7 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function trades() {
+    public function trades() : HasMany {
         return $this->hasMany(trade::class);
     }
 

@@ -8,6 +8,7 @@ use app\Models\User;
 use App\Models\tradingGoal;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class tradingPool extends Model
 {
@@ -32,21 +33,21 @@ class tradingPool extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function goal() {
+    public function goal() : HasOne {
         return $this->hasOne(tradingGoal::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function reward() {
+    public function reward() : hasOne {
         return $this->hasOne(tradingReward::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function type() {
+    public function type() : hasOne {
         return $this->hasOne(tradingType::class);
     }
 
