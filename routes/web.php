@@ -2,6 +2,7 @@
 
 use App\Models\tradingPool;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('poc/index')
-        ->with('tradingPools', tradingPool::all())
-        ->with('tradingPoolsCount', tradingPool::count())
-        ->with('tradingPoolsUsersCount', \App\Models\tradingPoolUser::count());
+    return view('welcome');
 });
 
-Route::get('/trading-pool/{id}', function ($id) {
-    return view('poc/tradingpool')
-        ->with('tradingPool', tradingPool::findOrFail($id));
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('admin/index')
+            ->with('tradingPools', tradingPool::all())
+            ->with('tradingPoolsCount', tradingPool::count())
+            ->with('tradingPoolsUsersCount', \App\Models\tradingPoolUser::count());
+    });
+
+    Route::get('/trading-pool/{id}', function ($id) {
+        return view('admin/tradingpool')
+            ->with('tradingPool', tradingPool::findOrFail($id));
+    });
+
+    Route::get('/account', function () {
+        return view('admin/account');
+    });
 });
 
-Route::get('/cards', function () {
-    return view('poc/cards');
-});
+
+
+Fortify::loginView(function () {
+    return view('admin/login');
+});;
+
+Fortify::registerView(function () {
+    return view('admin/register');
+});;

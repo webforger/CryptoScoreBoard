@@ -1,4 +1,4 @@
-@extends('poc/layout')
+@extends('admin/layout')
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -108,7 +108,7 @@
                         <h6 class="m-0 text-secondary">{{ $tradingPool->poolUsersCount() }} Participants</h6>
                     </div>
                     <div class="card-body">
-                        <a href="/trading-pool/{{ $tradingPool->id }}" class="btn btn-primary">View pool</a>
+                        <a href="/admin/trading-pool/{{ $tradingPool->id }}" class="btn btn-primary">View pool</a>
                     </div>
                 </div>
             </div>

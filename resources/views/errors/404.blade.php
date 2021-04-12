@@ -1,5 +1,4 @@
-@extends('poc.layout')
-@section('content')
+
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -15,5 +14,4 @@
     </div>
     <!-- /.container-fluid -->
 
-@endsection
 
