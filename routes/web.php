@@ -22,13 +22,18 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('admin/index')
-            ->with('tradingPools', tradingPool::all())
+            ->with('tradingPools', tradingPool::latest()->take(10)->get())
             ->with('tradingPoolsCount', tradingPool::count())
             ->with('tradingPoolsUsersCount', \App\Models\tradingPoolUser::count());
+    })->name('dashboard');
+
+    Route::get('/trading-pools/', function () {
+        return view('admin/tradingpool/list')
+            ->with('tradingPools', tradingPool::all());
     });
 
     Route::get('/trading-pool/{id}', function ($id) {
-        return view('admin/tradingpool')
+        return view('admin/tradingpool/view-one')
             ->with('tradingPool', tradingPool::findOrFail($id));
     });
 

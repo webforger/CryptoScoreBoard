@@ -15,8 +15,10 @@ use App\Models\tradingGoal;
 
 class tradingPoolSeeder extends Seeder
 {
-    CONST USERS_PER_POOL_MIN = 2;
+    CONST USERS_PER_POOL_MIN = 0;
     CONST USERS_PER_POOL_MAX = 10;
+    CONST TRADING_POOLS = 45;
+    CONST TRADES_PER_POOL = 20;
     /**
      * Run the database seeds.
      *
@@ -25,13 +27,13 @@ class tradingPoolSeeder extends Seeder
     public function run()
     {
 
-        $tradingPool = tradingPool::factory(5)
-            ->has(User::factory()->count(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
-            ->create();
+        for ($i = 0; $i < $this::TRADING_POOLS; $i++) {
+            $tradingPool = tradingPool::factory()
+                ->has(User::factory(rand($this::USERS_PER_POOL_MIN, $this::USERS_PER_POOL_MAX)), 'users')
+                ->create();
+        }
 
-        trade::factory(100)
-            ->count(100)
-            ->create();
+        trade::factory($this::TRADES_PER_POOL * $this::TRADING_POOLS)->create();
 
     }
 }
