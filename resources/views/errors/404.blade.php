@@ -1,4 +1,4 @@
-@extends('poc.layout')
+@extends('admin.layout')
 @section('content')
 
     <!-- Begin Page Content -->

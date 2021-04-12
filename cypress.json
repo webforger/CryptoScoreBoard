@@ -6,5 +6,9 @@
     "screenshotsFolder" : "tests/cypress/screenshots",
     "videosFolder" : "tests/cypress/videos",
     "pluginsFile" : "tests/cypress/plugins/index.js",
-    "supportFile" : "tests/cypress/support/index.js"
+    "supportFile" : "tests/cypress/support/index.js",
+    "env": {
+        "adminEmail": "admin@test.com",
+        "adminPassword": "password"
+    }
 }
