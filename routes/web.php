@@ -28,4 +28,4 @@ Route::get('/trading-pool/{id}', function ($id) {
 
 Route::get('/cards', function () {
     return view('poc/cards');
-});
+})->middleware('auth');;
