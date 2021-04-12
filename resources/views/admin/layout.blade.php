@@ -42,7 +42,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/admin/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Admin Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -55,16 +55,15 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"  aria-expanded="true" aria-controls="collapseTwo"  data-test="dropdown-trading-pools">
                     <i class="fas fa-fw fa-suitcase"></i>
                     <span>Trading Pools</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="/admin/trading-pools/">View all</a>
-                        <a class="collapse-item" href="/admin/create">Create</a>
+                        <a class="collapse-item" href="/admin/trading-pools/" data-test="view-trading-pools">View all</a>
+                        <a class="collapse-item" href="/admin/create" data-test="create-trading-pools">Create</a>
                     </div>
                 </div>
             </li>

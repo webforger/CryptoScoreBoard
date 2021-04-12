@@ -6,9 +6,9 @@ describe('admin', () => {
         Cypress.Cookies.preserveOnce('cryptoscoreboard_session', 'XSRF-TOKEN')
     })
 
-    it('view one tradingPool', () => {
-        cy.contains('View pool').click();
-        cy.url().should('include', 'trading-pool/');
+    it('view dashboard', () => {
+        cy.contains('Admin Dashboard').click();
+        cy.contains('Dashboard');
     })
 
     it('view my profile', () => {
@@ -16,4 +16,17 @@ describe('admin', () => {
         cy.contains('Profile').click();
         cy.url().should('include', 'account');
     })
+
+    it('view every trading pools', () => {
+        cy.get('[data-test="dropdown-trading-pools"]').click();
+        cy.get('[data-test="view-trading-pools"]').click();
+        cy.url().should('include', 'trading-pools');
+    })
+
+    it('view one tradingPool', () => {
+        cy.visit('/admin/trading-pools/')
+        cy.contains('View pool').click();
+        cy.url().should('include', 'trading-pool/');
+    })
+
 })
