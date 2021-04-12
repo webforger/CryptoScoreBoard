@@ -2,6 +2,7 @@
 
 use App\Models\tradingPool;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,12 @@ Route::get('/trading-pool/{id}', function ($id) {
 
 Route::get('/cards', function () {
     return view('poc/cards');
-})->middleware('auth');;
+})->middleware('auth');
+
+Fortify::loginView(function () {
+    return view('login');
+});;
+
+Fortify::registerView(function () {
+    return view('register');
+});;

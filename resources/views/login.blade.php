@@ -43,26 +43,36 @@
                                     </div>
                                     <form action="/login" method="post" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email" name="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." value="{{ old('email') }}">
+                                                placeholder="Enter Email Address..." value="{{ old('email') }}"
+                                            >
+
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" value="{{ old('password') }}">
+                                            <input type="password" name="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password" value="{{ old('password') }}"
+                                            >
                                         </div>
+                                        {{ csrf_field() }}
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <label class="custom-control-label" for="customCheck">
+                                                    Remember Me
+                                                </label>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>
-
+                                        @error('email')
+                                        <p>{{ $message }}</p>
+                                        @enderror
+                                        @error('password')
+                                        <p>{{ $message }}</p>
+                                        @enderror
                                     </form>
                                     <hr>
                                     <div class="text-center">
