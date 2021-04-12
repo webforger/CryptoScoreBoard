@@ -9,6 +9,8 @@
     "supportFile" : "tests/cypress/support/index.js",
     "env": {
         "adminEmail": "admin@test.com",
-        "adminPassword": "password"
+        "adminPassword": "password",
+        "defaultEmail": "user@test.com",
+        "defaultPassword": "password"
     }
 }
