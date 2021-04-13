@@ -5,16 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
+        <link href="/frontapp/app.css" rel="stylesheet" type="text/css">
     </head>
     <body class="antialiased">
-        <h1>Magnificient homepage</h1>
-        <a href="/admin/">Go to admin page</a>
+        <div class="grid">
+            <div class="col-lg-4">
+                <p><a href="/admin/">Go to admin page</a></p>
+            </div>
+            <div class="col-lg-8">
+                <p>test 8</p>
+            </div>
+        </div>
+
     </body>
 </html>
