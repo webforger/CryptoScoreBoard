@@ -15,3 +15,5 @@ mix.js('resources/js/frontapp/app.js', 'public/frontapp/js/app.js')
     .sass('resources/css/frontapp/app.scss', 'public/frontapp/app.css', [
         //
     ]);
+
+mix.copy('resources/img/frontapp/logo.svg', 'public/frontapp/img/logo.svg');

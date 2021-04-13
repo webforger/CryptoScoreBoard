@@ -8,6 +8,9 @@
         <link href="/frontapp/app.css" rel="stylesheet" type="text/css">
     </head>
     <body class="antialiased">
+        <nav id="nav-bar">
+            <img src="/frontapp/img/logo.svg" alt="logo">
+        </nav>
         <div class="grid">
             <div class="col-lg-4">
                 <p><a href="/admin/">Go to admin page</a></p>

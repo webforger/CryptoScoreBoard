@@ -1,3 +1,12 @@
-.container {
-    width: 800px
+body {
+    background: #17191B;
+}
+
+nav#nav-bar {
+    background: #111214;
+    position:fixed;
+    left:0;
+    top:0;
+    width: 70px;
+    height: 100%;
 }
