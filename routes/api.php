@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\tradingPool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('logout','LoginController@logout');
     Route::post('password/email','ForgotPasswordController@sendResetLinkEmail');
     Route::post('password/reset','ResetPasswordController@reset');
+});
+
+Route::get('/trading-pools/', function () {
+    return response()->json(tradingPool::all());
 });
