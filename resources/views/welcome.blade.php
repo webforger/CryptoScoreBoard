@@ -3,22 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-        <link href="/frontapp/app.css" rel="stylesheet" type="text/css">
+        <meta name="csr-token" content="{{ csrf_token() }}">
+        <title>Trading Wars</title>
+        <link href="{{ asset('/frontapp/css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
-    <body class="antialiased">
-        <nav id="nav-bar">
-            <img src="/frontapp/img/logo.svg" alt="logo">
-        </nav>
-        <div class="grid">
-            <div class="col-lg-4">
-                <p><a href="/admin/">Go to admin page</a></p>
-            </div>
-            <div class="col-lg-8">
-                <p>test 8</p>
-            </div>
-        </div>
-
+    <body>
+        <div id="app"></div>
+        <script src="{{ asset('/frontapp/js/app.js') }}"></script>
     </body>
 </html>
