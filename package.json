@@ -19,6 +19,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "cypress": "^6.8.0"
+        "cypress": "^6.8.0",
+        "react-router": "^5.2.0"
     }
 }
