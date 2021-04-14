@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/static', function () {
+    return view('static');
+});
+
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('admin/index')

@@ -14,8 +14,10 @@ const Index = (props) => {
         }
     }, []);
     const tradingPoolsList = tradingPools.map((tradingPool) =>
-        <div key={tradingPool.id}>
-            <h5>{tradingPool.name}</h5>
+        <div className="trading-pool" key={tradingPool.id}>
+            <div className="bottom">
+                <p>{tradingPool.name}</p>
+            </div>
         </div>
     );
 
