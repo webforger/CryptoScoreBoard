@@ -49,7 +49,6 @@ class Nav extends Component {
                 <Link to="/">Index</Link>
                 <Link to="/login">Login</Link>
             </nav>
-
         )
     }
 
