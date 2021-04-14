@@ -6,7 +6,7 @@
     <meta name="csr-token" content="{{ csrf_token() }}">
     <title>Trading Wars</title>
     <link href="{{ asset('/frontapp/app.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://kit.fontawesome.com/4ca1b11701.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav id="nav-bar">
@@ -20,12 +20,14 @@
             </li>
             <li>
                 <a class="menu__item" href="#">
-                    Home
+                    <i class="fas fa-camera"></i>
+                    <span>Home</span>
                 </a>
             </li>
             <li>
                 <a class="menu__item" href="#">
-                    Menu item 2
+                    <i class="fas fa-camera"></i>
+                    <span>Home</span>
                 </a>
             </li>
         </ul>
