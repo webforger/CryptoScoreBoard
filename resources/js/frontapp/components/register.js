@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Nav from './layout/navbar'
 import axios from 'axios'
 
 class Register extends Component {
@@ -48,7 +47,6 @@ class Register extends Component {
         let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
         return (
              <div>
-                <Nav />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-md-offset-2">

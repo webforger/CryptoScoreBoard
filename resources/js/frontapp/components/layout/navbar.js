@@ -1,56 +1,34 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import apiClient from "../../services/apiClient";
 
+const Nav = (props) => {
+    const logout = () => {
+        apiClient.post('/logout').then(response => {
+            if (response.status === 204) {
+                props.setLoggedIn(false);
+                sessionStorage.setItem('loggedIn', false);
+            }
+        })
+    };
+    const authLink = props.loggedIn
+        ? <button onClick={logout} className="nav-link btn btn-link">Logout</button>
+        : <NavLink to='/login' className="nav-link">Login</NavLink>;
 
-class Nav extends Component {
-
-    constructor(props){
-        super(props);
-    }
-
-    logout(e){
-        e.preventDefault();
-        axios.post('api/logout')
-            .then(response=> {
-                this.props.history.push('/');
-            })
-            .catch(error=> {
-                console.log(error);
-            });
-    }
-
-    handleClick(e){
-
+    const handleClick = (e) => {
         e.preventDefault();
         this.props.history.push('/');
-
     }
-    render() {
 
-        if (this.props.link) {
-            return (
-                <nav className="navbar navbar-default">
-                    <div className="container-fluid">
-                        <div className="navbar-header">
-                            <a className="navbar-brand" href="#" onClick={this.handleClick.bind(this)}>Basic Authentication</a>
-                        </div>
-                        <ul className="nav navbar-nav navbar-right">
-                            <a className="navbar-brand" href="#" onClick={this.logout.bind(this)}>{this.props.link}</a>
-                        </ul>
-                    </div>
-                </nav>
-            )
-        }
-        return (
-            <nav id={"nav-bar"}>
-                <img src={"/frontapp/img/Logo.svg"} alt={"Logo"} />
-                <Link to="/">Index</Link>
-                <Link to="/login">Login</Link>
-            </nav>
-        )
-    }
+    return (
+        <nav id={"nav-bar"}>
+            <img src={"/frontapp/img/Logo.svg"} alt={"Logo"} />
+            <Link to="/">Index</Link>
+            {authLink}
+        </nav>
+    )
 
 }
 

@@ -51,3 +51,7 @@ Fortify::loginView(function () {
 Fortify::registerView(function () {
     return view('admin/register');
 });;
+
+Route::fallback(function () {
+    return view('welcome');
+});
