@@ -7,22 +7,31 @@ const Index = (props) => {
         if (props.loggedIn) {
             apiClient.get('/api/trading-pools/')
                 .then(response => {
-                    console.log(response.data);
-                    setTradingPools(response.data);
+                    console.log(response.data.data);
+                    setTradingPools(response.data.data);
                 })
                 .catch(error => console.error(error));
         }
     }, []);
-    const tradingPoolsList = tradingPools.map((tradingPool) =>
+    let tradingPoolsList = tradingPools.map((tradingPool) =>
         <div className="trading-pool" key={tradingPool.id}>
             <div className="bottom">
                 <p>{tradingPool.name}</p>
             </div>
         </div>
     );
+    let title = 'test';
+    /**const tradingPoolsList = tradingPools.each(function() {
+
+    })**/
 
     return (
-        <div className="list-group">{tradingPoolsList}</div>
+        <div>
+            <h1>{title}</h1>
+            <div className="grid">
+                {tradingPoolsList}
+            </div>
+        </div>
     );
 
 }

@@ -16,6 +16,8 @@ class tradingPool extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['trading_goal_id', 'trading_reward_id', 'trading_type_id'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
