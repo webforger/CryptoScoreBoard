@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import apiClient from '../services/apiClient';
+import TradingPoolLoader from "./tradingPoolLoader";
 
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
+    const [loading, setLoading] = React.useState([true]);
     React.useEffect(() => {
-        if (props.loggedIn) {
-            apiClient.get('/api/trading-pools/')
-                .then(response => {
-                    console.log(response.data.data);
-                    setTradingPools(response.data.data);
-                })
-                .catch(error => console.error(error));
-        }
+        apiClient.get('/api/trading-pools/')
+            .then(response => {
+                console.log(response.data.data);
+                setTradingPools(response.data.data);
+                setLoading(false)
+            })
+            .catch(error => console.error(error));
     }, []);
-    let tradingPoolsList = tradingPools.map((tradingPool) =>
+
+    const tradingPoolsList = tradingPools.map((tradingPool) =>
         <div className="trading-pool" key={tradingPool.id}>
             <div className="bottom">
                 <p>{tradingPool.name}</p>
             </div>
         </div>
     );
-    let title = 'test';
-    /**const tradingPoolsList = tradingPools.each(function() {
-
-    })**/
+    const title = 'test';
 
     return (
         <div>
             <h1>{title}</h1>
+            <TradingPoolLoader loading={loading}/>
             <div className="grid">
                 {tradingPoolsList}
             </div>
