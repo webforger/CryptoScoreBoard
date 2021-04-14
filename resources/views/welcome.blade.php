@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csr-token" content="{{ csrf_token() }}">
         <title>Trading Wars</title>
-        <link href="{{ asset('/frontapp/css/app.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('/frontapp/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="app"></div>
