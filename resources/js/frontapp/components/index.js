@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import apiClient from '../services/apiClient';
-import TradingPoolLoader from "./tradingPoolLoader";
+import TradingPoolLoaderLine from "./tradingPool/tradingPoolLoaderLine";
 
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
@@ -27,7 +27,7 @@ const Index = (props) => {
     return (
         <div>
             <h1>{title}</h1>
-            <TradingPoolLoader loading={loading}/>
+            <TradingPoolLoaderLine loading={loading}/>
             <div className="grid">
                 {tradingPoolsList}
             </div>

@@ -36,6 +36,32 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4">
+                <div class="trading-pool loading">
+                    <div class="top">
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                    </div>
+                    <div class="bottom">
+                        <div class="text-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trading-pool loading">
+                    <div class="top">
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                        <div class="text-line"></div>
+                    </div>
+                    <div class="bottom">
+                        <div class="text-line"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
