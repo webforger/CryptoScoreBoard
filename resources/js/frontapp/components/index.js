@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import apiClient from '../services/apiClient';
 import TradingPoolLoaderLine from "./tradingPool/tradingPoolLoaderLine";
+import TradingPool from "./tradingPool/tradingPool"
 
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
@@ -32,7 +33,13 @@ const Index = (props) => {
             let tradingPoolChildren = [];
             for (const [key, children] of Object.entries(tradingPoolLine)) {
                 console.log(children);
-                tradingPoolChildren.push(<div key={children.id} className={"col-lg-3"}>{children.name}</div>)
+                tradingPoolChildren.push(<div className={"col-lg-3"}>
+                    <TradingPool
+                        key={children.id}
+                        name={children.name}
+                        className={"col-lg-3"}
+                    />
+               </div>)
             }
             tradingPoolsRender.push(<div key={index} className={"grid"}>{tradingPoolChildren}</div>)
         })
