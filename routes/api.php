@@ -30,6 +30,6 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/trading-pools/', function () {
     return response()->json(
         tradingPool::with(['tradingGoal.coin','tradingReward','tradingType', 'tradingGoal.tradingPeriod'])
-            ->paginate(4)
+            ->paginate(20)
     );
 });

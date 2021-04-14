@@ -8,29 +8,45 @@ const Index = (props) => {
     React.useEffect(() => {
         apiClient.get('/api/trading-pools/')
             .then(response => {
-                console.log(response.data.data);
                 setTradingPools(response.data.data);
                 setLoading(false)
             })
             .catch(error => console.error(error));
     }, []);
 
-    const tradingPoolsList = tradingPools.map((tradingPool) =>
-        <div className="trading-pool" key={tradingPool.id}>
-            <div className="bottom">
-                <p>{tradingPool.name}</p>
-            </div>
-        </div>
-    );
+    const renderTradingPools = () => {
+        let lines = [];
+        let line = [];
+        let elementCounter = 0;
+        for (const [key, value] of Object.entries(tradingPools)) {
+            if ( elementCounter !== 0 && elementCounter % 4 === 0) {
+                lines.push(line);
+                line = [];
+            }
+            line.push(value);
+            elementCounter++;
+        }
+
+        let tradingPoolsRender = [];
+        lines.forEach(function(tradingPoolLine, index) {
+            let tradingPoolChildren = [];
+            for (const [key, children] of Object.entries(tradingPoolLine)) {
+                console.log(children);
+                tradingPoolChildren.push(<div key={children.id} className={"col-lg-3"}>{children.name}</div>)
+            }
+            tradingPoolsRender.push(<div key={index} className={"grid"}>{tradingPoolChildren}</div>)
+        })
+
+        return tradingPoolsRender;
+    }
+
     const title = 'test';
 
     return (
         <div>
             <h1>{title}</h1>
             <TradingPoolLoaderLine loading={loading}/>
-            <div className="grid">
-                {tradingPoolsList}
-            </div>
+            {renderTradingPools()}
         </div>
     );
 
