@@ -24,9 +24,30 @@ const Nav = (props) => {
 
     return (
         <nav id={"nav-bar"}>
-            <img src={"/frontapp/img/Logo.svg"} alt={"Logo"} />
-            <Link to="/">Index</Link>
-            {authLink}
+            <input id={"menu__toggle"} type={"checkbox"}/>
+            <label className={"menu__btn"} htmlFor={"menu__toggle"}>
+                <span></span>
+            </label>
+            <ul className={"menu__box"}>
+                <li>
+                    <a className={"menu__item active"} href={"#"}>
+
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a className={"menu__item"} href={"#"}>
+
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a className={"menu__item sign__out"} href={"#"}>
+
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
     )
 
