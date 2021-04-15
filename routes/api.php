@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\tradingPool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +26,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('password/reset','ResetPasswordController@reset');
 });
 
-Route::get('/trading-pools/', function () {
-    return response()->json(
-        tradingPool::with(['tradingGoal.coin','tradingReward','tradingType', 'tradingGoal.tradingPeriod'])
-            ->paginate(20)
-    );
-});
+Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetch']);
