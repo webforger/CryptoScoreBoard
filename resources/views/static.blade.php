@@ -71,6 +71,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4">
+                    <a class="btn btn-primary">
+                        Primary
+                    </a>
+                    <a class="btn btn-secondary">
+                        Secondary
+                    </a>
+                    <a class="btn btn-pink">
+                        Pink
+                    </a>
+                    <a class="btn btn-gold">
+                        Gold
+                    </a>
+                    <a class="btn disabled">
+                        Disabled
+                    </a>
+                    <a class="btn btn-outline-primary">
+                        Outline primary
+                    </a>
+                    <a class="btn btn-outline-secondary">
+                        Outline secondary
+                    </a>
+                </div>
             </div>
         </div>
     </div>

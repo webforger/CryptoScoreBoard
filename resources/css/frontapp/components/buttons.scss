@@ -1,0 +1,37 @@
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+
+    &.btn-primary {
+        background: #6B3EFA;
+    }
+    &.btn-secondary {
+        background: #58BCDA;
+    }
+    &.btn-pink {
+        background: #FF7BEA;
+    }
+    &.btn-gold {
+        background: #EBA835;
+    }
+    &:disabled, &.disabled {
+        background: #535353;
+        color: #C0C0C0;
+    }
+    &.btn-outline-primary {
+        border: 1px solid #7517F8;
+        box-sizing: border-box;
+        border-radius: 12px;
+    }
+    &.btn-outline-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-sizing: border-box;
+        border-radius: 12px;
+    }
+}
