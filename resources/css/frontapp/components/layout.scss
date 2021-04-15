@@ -119,6 +119,7 @@ nav#nav-bar {
             line-height: 70px;
             color: #505963;
             border-left: 4px solid transparent;
+            transition-duration: .25s;
         }
 
         span {
@@ -131,9 +132,10 @@ nav#nav-bar {
             font-size: 18px;
             font-weight: 400;
             letter-spacing: 4px;
+            transition-duration: .25s;
         }
 
-        &.sign__out {
+        &.absolute__bottom {
             position: absolute;
             bottom: 0;
         }

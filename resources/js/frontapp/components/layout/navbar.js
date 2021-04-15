@@ -3,6 +3,8 @@ import {Link, NavLink} from 'react-router-dom'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import apiClient from "../../services/apiClient";
+import MenuItem from "./menuItem";
+import MenuLogout from "./menuLogout";
 
 const Nav = (props) => {
     const logout = () => {
@@ -14,8 +16,8 @@ const Nav = (props) => {
         })
     };
     const authLink = props.loggedIn
-        ? <button onClick={logout} className="nav-link btn btn-link">Logout</button>
-        : <NavLink to='/login' className="nav-link">Login</NavLink>;
+        ? <MenuLogout logout={logout} text={"Log out"} icon={"fas fa-sign-out-alt"} />
+        : <MenuItem text={"Log in"} to={"/login"} icon={"fas fa-sign-in-alt"} additionalClasses={"absolute__bottom"} />
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -29,24 +31,9 @@ const Nav = (props) => {
                 <span></span>
             </label>
             <ul className={"menu__box"}>
-                <li>
-                    <a className={"menu__item active"} href={"#"}>
-                        <i className={"fas fa-home"} />
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a className={"menu__item"} href={"#"}>
-                        <i className={"fas fa-home"} />
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a className={"menu__item sign__out"} href={"#"}>
-                        <i className={"fas fa-sign-out-alt"} />
-                        <span>Logout</span>
-                    </a>
-                </li>
+                <MenuItem activeOnlyWhenExact={true} text={"Home"} to={"/"} icon={"fas fa-home"} />
+                <MenuItem text={"Coffee"} to={"/coffee"} icon={"fas fa-coffee"} />
+                {authLink}
             </ul>
         </nav>
     )
