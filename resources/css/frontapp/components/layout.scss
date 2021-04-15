@@ -41,7 +41,6 @@ nav#nav-bar {
         }
     }
 
-
     .menu__btn {
         display: flex;
         align-items: center;
@@ -99,7 +98,6 @@ nav#nav-bar {
         font-weight: 600;
         text-decoration: none;
         transition-duration: .25s;
-        border-left: 4px solid transparent;
         position: relative;
         height:70px;
         line-height: 70px;
@@ -113,13 +111,14 @@ nav#nav-bar {
 
         i {
             display: inline-block;
-            width:50px;
+            width:70px;
             height:70px;
-            margin-left: 230px;
+            margin-left: 224px;
             text-align: center;
             vertical-align: middle;
             line-height: 70px;
             color: #505963;
+            border-left: 4px solid transparent;
         }
 
         span {
@@ -128,6 +127,10 @@ nav#nav-bar {
             width: 200px;
             vertical-align: middle;
             line-height: 70px;
+            color: #505963;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 4px;
         }
 
         &.sign__out {
@@ -136,8 +139,11 @@ nav#nav-bar {
         }
     }
     .menu__item:hover, .menu__item.active {
-        border-color: #58BCDA;
         i {
+            color: #58BCDA;
+            border-color: #58BCDA;
+        }
+        span {
             color: #58BCDA;
         }
     }
