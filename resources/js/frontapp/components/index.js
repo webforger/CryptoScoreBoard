@@ -41,15 +41,14 @@ const Index = (props) => {
             lines.forEach(function (tradingPoolLine, index) {
                 let tradingPoolChildren = [];
                 for (const [key, children] of Object.entries(tradingPoolLine)) {
-                    tradingPoolChildren.push(<div key={key} className={"col-lg-3"}>
+                    tradingPoolChildren.push(<div key={key} className={"col-lg-3 col-md-6"}>
                         <TradingPool
                             id={children.id}
                             name={children.name}
-                            className={"col-lg-3"}
                         />
                     </div>)
                 }
-                tradingPoolsRender.push(<div data-key={index} key={index} className={"grid mt-3"}>{tradingPoolChildren}</div>)
+                tradingPoolsRender.push(<div data-key={index} key={index} className={"row mt-3"}>{tradingPoolChildren}</div>)
             })
 
             return tradingPoolsRender;
@@ -67,7 +66,7 @@ const Index = (props) => {
             </div>
             <div className={"container-left"}>
                 <header className={"main-header"}>
-                    <div className={"grid"}>
+                    <div className={"row"}>
                         <div className={"col-lg-6"}></div>
                         <div className={"col-lg-6 align-right"}>
                             <Button

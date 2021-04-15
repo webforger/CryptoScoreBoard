@@ -47,7 +47,7 @@
                 <p>test</p>
             </header>
 
-            <div class="grid">
+            <div class="row">
                 <div class="col-lg-4">
                     <div class="trading-pool">
                         <div class="top">

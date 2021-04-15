@@ -3,7 +3,7 @@ import TradingPoolLoader from "./tradingPoolLoader";
 
 const TradingPoolLoaderLine = (props) => {
     return (
-        <div className={"grid mt-3"}>
+        <div className={"row mt-3"}>
             <div className={"col-lg-3"}>
                 <TradingPoolLoader />
             </div>
