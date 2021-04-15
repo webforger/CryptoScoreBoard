@@ -31,19 +31,19 @@ const Nav = (props) => {
             <ul className={"menu__box"}>
                 <li>
                     <a className={"menu__item active"} href={"#"}>
-
+                        <i className={"fas fa-home"} />
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
                     <a className={"menu__item"} href={"#"}>
-
+                        <i className={"fas fa-home"} />
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
                     <a className={"menu__item sign__out"} href={"#"}>
-
+                        <i className={"fas fa-sign-out-alt"} />
                         <span>Logout</span>
                     </a>
                 </li>

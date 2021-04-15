@@ -6,7 +6,7 @@
     <meta name="csr-token" content="{{ csrf_token() }}">
     <title>Trading Wars</title>
     <link href="{{ asset('/frontapp/app.css') }}" rel="stylesheet" type="text/css">
-    <script src="https://kit.fontawesome.com/4ca1b11701.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <nav id="nav-bar">
