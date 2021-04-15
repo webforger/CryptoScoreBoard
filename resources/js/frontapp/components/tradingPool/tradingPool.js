@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 const TradingPool = (props) => {
     return (
-        <div className={"trading-pool"}>
+        <div className={"trading-pool"} data-key={props.id} key={props.id}>
             <div className={"top"}>
 
             </div>

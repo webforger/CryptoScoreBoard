@@ -10,18 +10,19 @@ const Index = (props) => {
     React.useEffect(() => {
         apiClient.get('/api/trading-pools/')
             .then(response => {
+                console.log(response)
                 setTradingPools(response.data.data);
                 setLoading(false)
             })
             .catch(error => console.error(error));
     }, []);
 
-    const renderTradingPools = () => {
+    const chunkTradingPools = () => {
         let lines = [];
         let line = [];
         let elementCounter = 0;
         for (const [key, value] of Object.entries(tradingPools)) {
-            if ( elementCounter !== 0 && elementCounter % 4 === 0) {
+            if (elementCounter !== 0 && elementCounter % 4 === 0) {
                 lines.push(line);
                 line = [];
             }
@@ -29,23 +30,33 @@ const Index = (props) => {
             elementCounter++;
         }
 
-        let tradingPoolsRender = [];
-        lines.forEach(function(tradingPoolLine, index) {
-            let tradingPoolChildren = [];
-            for (const [key, children] of Object.entries(tradingPoolLine)) {
-                console.log(children);
-                tradingPoolChildren.push(<div className={"col-lg-3"}>
-                    <TradingPool
-                        key={children.id}
-                        name={children.name}
-                        className={"col-lg-3"}
-                    />
-               </div>)
-            }
-            tradingPoolsRender.push(<div key={index} className={"grid mt-3"}>{tradingPoolChildren}</div>)
-        })
+        return lines;
+    }
 
-        return tradingPoolsRender;
+    const renderTradingPools = () => {
+        if ( !loading && tradingPools.length > 0) {
+            let lines = chunkTradingPools();
+
+            let tradingPoolsRender = [];
+            lines.forEach(function (tradingPoolLine, index) {
+                let tradingPoolChildren = [];
+                for (const [key, children] of Object.entries(tradingPoolLine)) {
+                    tradingPoolChildren.push(<div key={key} className={"col-lg-3"}>
+                        <TradingPool
+                            id={children.id}
+                            name={children.name}
+                            className={"col-lg-3"}
+                        />
+                    </div>)
+                }
+                tradingPoolsRender.push(<div data-key={index} key={index} className={"grid mt-3"}>{tradingPoolChildren}</div>)
+            })
+
+            return tradingPoolsRender;
+        }
+        else {
+            return <TradingPoolLoaderLine key={0}/>
+        }
     }
 
     return (
@@ -67,7 +78,6 @@ const Index = (props) => {
                         </div>
                     </div>
                 </header>
-                <TradingPoolLoaderLine loading={loading}/>
                 {renderTradingPools()}
             </div>
         </div>
