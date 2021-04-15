@@ -113,7 +113,7 @@ nav#nav-bar {
             display: inline-block;
             width:70px;
             height:70px;
-            margin-left: 224px;
+            margin-left: 230px;
             text-align: center;
             vertical-align: middle;
             line-height: 70px;
@@ -149,8 +149,6 @@ nav#nav-bar {
             color: #58BCDA;
         }
     }
-
-
 }
 
 #container {
@@ -161,4 +159,29 @@ nav#nav-bar {
     height: 100%;
     overflow-y: scroll;
     color: #FFF;
+}
+
+.container-left {
+    width: auto;
+    margin-right: 301px;
+}
+
+.container-right {
+    position: absolute;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: #1E2227;
+}
+
+header.main-header {
+    height: 40px;
+    width: 100%;
+    position:relative;
+    top:0;
+    left:0;
+}
+
+.mt-3 {
+    margin-top: 3 em;
 }

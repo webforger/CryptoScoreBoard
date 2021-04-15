@@ -47,13 +47,20 @@ const Index = (props) => {
         return tradingPoolsRender;
     }
 
-    const title = 'test';
-
     return (
-        <div>
-            <h1>{title}</h1>
-            <TradingPoolLoaderLine loading={loading}/>
-            {renderTradingPools()}
+        <div id={"container"}>
+            <div className={"container-right"}>
+                <header className={"main-header"}>
+                    <p>test</p>
+                </header>
+            </div>
+            <div className={"container-left"}>
+                <header className={"main-header"}>
+                    <p>test</p>
+                </header>
+                <TradingPoolLoaderLine loading={loading}/>
+                {renderTradingPools()}
+            </div>
         </div>
     );
 

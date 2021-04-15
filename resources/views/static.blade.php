@@ -36,53 +36,39 @@
         </ul>
     </nav>
     <div id="container">
-        <div class="grid">
-            <div class="col-lg-4">
-                <div class="trading-pool">
-                    <div class="top">
-                        <p>top</p>
-                    </div>
-                    <div class="bottom">
-                        <p>test</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trading-pool loading">
-                    <div class="top">
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                    </div>
-                    <div class="bottom">
-                        <div class="text-line"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trading-pool loading">
-                    <div class="top">
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                    </div>
-                    <div class="bottom">
-                        <div class="text-line"></div>
+        <div class="container-right">
+            <header class="main-header">
+                <p>test</p>
+            </header>
+            <p>test</p>
+        </div>
+        <div class="container-left">
+            <header class="main-header">
+                <p>test</p>
+            </header>
+
+            <div class="grid">
+                <div class="col-lg-4">
+                    <div class="trading-pool">
+                        <div class="top">
+                            <p>top</p>
+                        </div>
+                        <div class="bottom">
+                            <p>test</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trading-pool loading">
-                    <div class="top">
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                        <div class="text-line"></div>
-                    </div>
-                    <div class="bottom">
-                        <div class="text-line"></div>
+                <div class="col-lg-4">
+                    <div class="trading-pool loading">
+                        <div class="top">
+                            <div class="text-line"></div>
+                            <div class="text-line"></div>
+                            <div class="text-line"></div>
+                            <div class="text-line"></div>
+                        </div>
+                        <div class="bottom">
+                            <div class="text-line"></div>
+                        </div>
                     </div>
                 </div>
             </div>

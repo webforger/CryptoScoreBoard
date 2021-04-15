@@ -36,7 +36,7 @@ const Login = (props) => {
         return <Redirect to='/' />
     }
     return (
-        <div>
+        <div id={"container"}>
             <h3>Login</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

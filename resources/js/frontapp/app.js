@@ -17,16 +17,14 @@ const App = () => {
     return (
         <Router>
             <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-            <div id={"container"}>
-                <Switch>
-                    <Route path='/' exact render={props => (
-                        <Index {...props} loggedIn={loggedIn}/>
-                    )}/>
-                    <Route path='/login' render={props => (
-                        <Login {...props} login={login}/>
-                    )}/>
-                </Switch>
-            </div>
+            <Switch>
+                <Route path='/' exact render={props => (
+                    <Index {...props} loggedIn={loggedIn}/>
+                )}/>
+                <Route path='/login' render={props => (
+                    <Login {...props} login={login}/>
+                )}/>
+            </Switch>
         </Router>
     )
 }
