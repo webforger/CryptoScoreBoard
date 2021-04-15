@@ -4,7 +4,7 @@ import TradingPoolLoader from "./tradingPoolLoader";
 const TradingPoolLoaderLine = (props) => {
     if (props.loading) {
         return (
-            <div className={"grid"}>
+            <div className={"grid mt-3"}>
                 <div className={"col-lg-3"}>
                     <TradingPoolLoader />
                 </div>

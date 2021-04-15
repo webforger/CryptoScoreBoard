@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import apiClient from '../services/apiClient';
 import TradingPoolLoaderLine from "./tradingPool/tradingPoolLoaderLine";
 import TradingPool from "./tradingPool/tradingPool"
+import Button from "./button";
 
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
@@ -41,7 +42,7 @@ const Index = (props) => {
                     />
                </div>)
             }
-            tradingPoolsRender.push(<div key={index} className={"grid"}>{tradingPoolChildren}</div>)
+            tradingPoolsRender.push(<div key={index} className={"grid mt-3"}>{tradingPoolChildren}</div>)
         })
 
         return tradingPoolsRender;
@@ -51,12 +52,20 @@ const Index = (props) => {
         <div id={"container"}>
             <div className={"container-right"}>
                 <header className={"main-header"}>
-                    <p>test</p>
                 </header>
             </div>
             <div className={"container-left"}>
                 <header className={"main-header"}>
-                    <p>test</p>
+                    <div className={"grid"}>
+                        <div className={"col-lg-6"}></div>
+                        <div className={"col-lg-6 align-right"}>
+                            <Button
+                                href={"/trade"}
+                                style={"btn-secondary"}
+                                text={"START TRADING NOW"}
+                            />
+                        </div>
+                    </div>
                 </header>
                 <TradingPoolLoaderLine loading={loading}/>
                 {renderTradingPools()}
