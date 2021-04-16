@@ -14,7 +14,7 @@ install:
   - php artisan migrate
   - php artisan db:seed
   - npm install
-  - npm run build
+  - npm run prod
 before_script:
   - php artisan serve &
 script:
