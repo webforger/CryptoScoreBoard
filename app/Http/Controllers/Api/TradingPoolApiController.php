@@ -22,4 +22,17 @@ class TradingPoolApiController extends Controller
             ->paginate($this::TRADING_POOLS_PER_PAGE)
         );
     }
+
+    /**
+     * Fetch every trading Pool and return it with pagination
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index() : \Illuminate\Http\JsonResponse {
+        return response()
+            ->json(
+                tradingPool::with(['tradingGoal.coin','tradingReward','tradingType', 'tradingGoal.tradingPeriod', 'users']
+                )
+                    ->paginate(10)
+            );
+    }
 }

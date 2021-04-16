@@ -26,4 +26,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('password/reset','ResetPasswordController@reset');
 });
 
-Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetch']);
+Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);

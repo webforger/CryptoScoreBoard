@@ -7,6 +7,7 @@ import Button from "./button";
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
     const [loading, setLoading] = React.useState([true]);
+
     React.useEffect(() => {
         apiClient.get('/api/trading-pools/')
             .then(response => {
@@ -28,6 +29,9 @@ const Index = (props) => {
             }
             line.push(value);
             elementCounter++;
+        }
+        if( line !== []) {
+            lines.push(line);
         }
 
         return lines;

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 const TradingPool = (props) => {
     return (
@@ -7,7 +8,9 @@ const TradingPool = (props) => {
 
             </div>
             <div className={"bottom"}>
-                <a href={"#"} className={"btn btn-gold f-right mt-2 mr-3"}>VIEW</a>
+                <Link className={"btn btn-gold f-right mt-2 mr-3"} to={"/trading-pool/" + props.tradingPool.id}>
+                    VIEW
+                </Link>
                 <p className={"pl-3"}>
                     First to {props.tradingPool.trading_goal.value} {props.tradingPool.trading_goal.coin.alias}
                 </p>

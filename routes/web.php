@@ -21,7 +21,12 @@ use Laravel\Fortify\Fortify;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/login', function () {
+    return view('welcome');
+});
+
+Route::get('/trading-pool/*', function () {
     return view('welcome');
 });
 
@@ -55,11 +60,3 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 Route::get('/admin/login', function () {
     return view('admin/login');
 });
-
-Fortify::loginView(function () {
-    return view('admin/login');
-});;
-
-Fortify::registerView(function () {
-    return view('admin/register');
-});;
