@@ -1,7 +1,11 @@
-@use 'components/layout';
-@use '../bootstrap/bootstrap-grid';
-@use 'components/trading-pool';
-@use 'components/buttons';
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+@import '../bootstrap/bootstrap-grid';
+@import '../bootstrap/utilities/spacing';
+@import 'components/layout';
+@import 'components/trading-pool';
+@import 'components/buttons';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 

@@ -155,15 +155,20 @@ nav#nav-bar {
     position: fixed;
     left:70px;
     top:0;
-    width: 100%;
     height: 100%;
+    right: 0;
     overflow-y: scroll;
     color: #FFF;
 }
 
 .container-left {
     width: auto;
-    margin-right: 301px;
+    margin-right: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    @media (max-width: 1008px) {
+        margin-right: 0px;
+    }
 }
 
 .container-right {
@@ -172,6 +177,9 @@ nav#nav-bar {
     width: 300px;
     height: 100%;
     background: #1E2227;
+    @media (max-width: 1008px) {
+        display: none;
+    }
 }
 
 header.main-header {
@@ -181,10 +189,6 @@ header.main-header {
     top:0;
     left:0;
     padding: 4px 8px;
-}
-
-.mt-3 {
-    margin-top: 3em;
 }
 
 .align-right {

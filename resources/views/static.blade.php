@@ -47,8 +47,8 @@
                 <p>test</p>
             </header>
 
-            <div class="row">
-                <div class="col-lg-4">
+            <div class="row px-2">
+                <div class="col-lg-3 px-4">
                     <div class="trading-pool">
                         <div class="top">
                             <p>top</p>
