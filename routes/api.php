@@ -27,3 +27,4 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
+Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);
