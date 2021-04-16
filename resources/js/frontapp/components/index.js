@@ -43,8 +43,7 @@ const Index = (props) => {
                 for (const [key, children] of Object.entries(tradingPoolLine)) {
                     tradingPoolChildren.push(<div key={key} className={"col-lg-3 col-md-6 mt-3"}>
                         <TradingPool
-                            id={children.id}
-                            name={children.name}
+                            tradingPool={children}
                         />
                     </div>)
                 }
