@@ -166,7 +166,7 @@ nav#nav-bar {
     margin-right: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
-    @media (max-width: 1008px) {
+    @media (max-width: 1200px) {
         margin-right: 0px;
     }
 }
@@ -177,7 +177,7 @@ nav#nav-bar {
     width: 300px;
     height: 100%;
     background: #1E2227;
-    @media (max-width: 1008px) {
+    @media (max-width: 1200px) {
         display: none;
     }
 }

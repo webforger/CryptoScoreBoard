@@ -17,7 +17,7 @@ class TradingPoolApiController extends Controller
     public function fetch() : \Illuminate\Http\JsonResponse {
         return response()
             ->json(
-                tradingPool::with(['tradingGoal.coin','tradingReward','tradingType', 'tradingGoal.tradingPeriod']
+                tradingPool::with(['tradingGoal.coin','tradingReward','tradingType', 'tradingGoal.tradingPeriod', 'users']
                 )
             ->paginate($this::TRADING_POOLS_PER_PAGE)
         );
