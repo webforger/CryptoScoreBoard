@@ -15,7 +15,13 @@ use Laravel\Fortify\Fortify;
 |
 */
 
+/**
+ * Front app views
+**/
 Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/login', function () {
     return view('welcome');
 });
 
@@ -46,7 +52,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     });
 });
 
-
+Route::get('/admin/login', function () {
+    return view('admin/login');
+});
 
 Fortify::loginView(function () {
     return view('admin/login');
@@ -55,7 +63,3 @@ Fortify::loginView(function () {
 Fortify::registerView(function () {
     return view('admin/register');
 });;
-
-Route::fallback(function () {
-    return view('welcome');
-});

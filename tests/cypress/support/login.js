@@ -1,4 +1,10 @@
 Cypress.Commands.add("login", (email = null, password = null) => {
+
+    cy.request({
+        method: 'GET',
+        url: '/sanctum/csrf-cookie'
+    })
+
     email = email || Cypress.env('defaultEmail')
     password = password || Cypress.env('defaultPassword')
     let _token
