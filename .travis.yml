@@ -21,4 +21,4 @@ before_script:
   - php artisan serve &
 script:
   - ./vendor/bin/phpunit tests
-  - npx cypress run --browser chrome --record --key 09424d8a-35b0-4f0d-8ec4-3dbc681f7926
+#- npx cypress run --browser chrome --record --key 09424d8a-35b0-4f0d-8ec4-3dbc681f7926
