@@ -1,4 +1,5 @@
 {
+    "projectId": "d3uej6",
     "baseUrl" : "http://localhost:8000/",
     "fixturesFolder" : "tests/cypress/fixtures",
     "downloadsFolder" : "tests/cypress/downloads",
