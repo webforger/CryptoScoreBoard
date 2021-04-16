@@ -1,7 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
-import Index from './components/index';
-import Login from './components/login';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';;
+import FullPageLoader from "./components/fullPageLoader";
+const Index = React.lazy(() => import('./components/index'));
+const Login = React.lazy(() => import('./components/login'));
 import Nav from './components/layout/navbar'
 import apiClient from './services/apiClient';
 
@@ -18,12 +19,14 @@ const App = () => {
         <Router>
             <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
             <Switch>
-                <Route path='/' exact render={props => (
-                    <Index {...props} loggedIn={loggedIn}/>
-                )}/>
-                <Route path='/login' render={props => (
-                    <Login {...props} login={login}/>
-                )}/>
+                <Suspense fallback={<FullPageLoader />}>
+                    <Route path='/' exact render={props => (
+                        <Index {...props} loggedIn={loggedIn}/>
+                    )}/>
+                    <Route path='/login' render={props => (
+                        <Login {...props} login={login}/>
+                    )}/>
+                </Suspense>
             </Switch>
         </Router>
     )
