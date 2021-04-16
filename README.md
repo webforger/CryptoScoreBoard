@@ -4,7 +4,7 @@
 
 ## Documentation
 ### Projects used
-Authenticatoin : https://laravel.com/docs/8.x/fortify
+Authentication : https://laravel.com/docs/8.x/fortify
 
 Permissions : https://github.com/spatie/laravel-permission 
 
@@ -14,6 +14,24 @@ Start docker containers
 docker-compose up -d
 composer install
 cp .env.test .env
+```
+
+### Build front app
+Install dependencies (requires nodejs)
+````bash
+npm install
+````
+Test build :
+```bash
+npm run dev
+```
+Production build :
+```bash
+npm run prod
+```
+Watcher
+```bash
+npm run watch
 ```
 
 ### Local Db access from docker :
