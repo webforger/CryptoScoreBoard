@@ -12,6 +12,7 @@ class tradingGoal extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $hidden = ['trading_period_id', 'coin_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

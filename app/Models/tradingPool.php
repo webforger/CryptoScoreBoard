@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\User;
-use App\Models\tradingGoal;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use phpDocumentor\Reflection\Types\Integer;
 
 class tradingPool extends Model
 {
     use HasFactory;
+
+    protected $hidden = ['trading_goal_id', 'trading_reward_id', 'trading_type_id'];
+    protected $appends = ['user_count'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -59,6 +58,14 @@ class tradingPool extends Model
      */
     public function tradingType() : hasOne {
         return $this->hasOne(tradingType::class, 'id', 'trading_type_id');;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserCountAttribute() : int
+    {
+        return $this->poolUsersCount();
     }
 
 }

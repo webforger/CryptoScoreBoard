@@ -3,6 +3,8 @@ php:
   - 7.3
 services:
   - mysql
+addons:
+  chrome: stable
 before_install:
   - nvm install node
   - mysql -e 'CREATE DATABASE testci;'
@@ -14,8 +16,9 @@ install:
   - php artisan migrate
   - php artisan db:seed
   - npm install
+  - npm run prod
 before_script:
   - php artisan serve &
 script:
   - ./vendor/bin/phpunit tests
-  - npx cypress run
+#- npx cypress run --browser chrome --record --key 09424d8a-35b0-4f0d-8ec4-3dbc681f7926

@@ -16,3 +16,5 @@ yarn-error.log
 tests/cypress/videos/*
 .docker-compose.yml
 .idea/
+public/frontapp/
+public/mix-manifest.json

@@ -11,7 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js('resources/js/frontapp/index.js', 'public/frontapp/js/app.js').react();
+
+mix.sass('resources/css/frontapp/app.scss', 'public/frontapp/app.css');
+
+mix.copy('resources/img/frontapp/logo.svg', 'public/frontapp/img/logo.svg');
+
+mix.sass('resources/css/frontapp/loader.scss', 'public/frontapp/loader.css');

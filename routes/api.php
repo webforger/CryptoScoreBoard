@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/users/{user}', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => ['web']], function () {
+    Route::post('login','LoginController@authenticate');
+    Route::post('register','RegisterController@register');
+    Route::post('logout','LoginController@logout');
+    Route::post('password/email','ForgotPasswordController@sendResetLinkEmail');
+    Route::post('password/reset','ResetPasswordController@reset');
+});
+
+Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
+Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);
