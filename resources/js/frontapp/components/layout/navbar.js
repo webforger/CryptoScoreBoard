@@ -12,6 +12,8 @@ const Nav = (props) => {
             if (response.status === 204) {
                 props.setLoggedIn(false);
                 sessionStorage.setItem('loggedIn', false);
+                sessionStorage.removeItem('token');
+                localStorage.clear();
             }
         })
     };
@@ -24,6 +26,24 @@ const Nav = (props) => {
         this.props.history.push('/');
     }
 
+    const adminLinks = () => {
+        if( props.user && props.user.roles[0] ) {
+            console.log(props.user)
+            if (props.user.roles[0].name === 'admin') {
+                return (<li key={'admin'}>
+                            <a
+                                className={"menu__item "}
+                                data-cy={"menu-link_" + "admin"}
+                                href={"/admin"}
+                            >
+                                <i className={"fas fa-user-shield"} />
+                                <span>Admin</span>
+                            </a>
+                        </li>);
+            }
+        }
+    }
+
     return (
         <nav id={"nav-bar"}>
             <input id={"menu__toggle"} type={"checkbox"}/>
@@ -34,6 +54,7 @@ const Nav = (props) => {
                 <MenuItem activeOnlyWhenExact={true} text={"Home"} to={"/"} icon={"fas fa-home"} name={"home"} />
                 <MenuItem text={"Coffee"} to={"/coffee"} icon={"fas fa-coffee"} name={"coffee"} />
                 {authLink}
+                {adminLinks()}
             </ul>
         </nav>
     )

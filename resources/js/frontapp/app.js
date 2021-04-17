@@ -41,7 +41,7 @@ const App = () => {
 
     return (
         <Router>
-            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user}/>
             <Switch>
                 <Suspense fallback={<FullPageLoader />}>
                     <Route path='/' exact render={props => (
