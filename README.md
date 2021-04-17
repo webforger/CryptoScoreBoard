@@ -12,6 +12,10 @@ Permissions : https://github.com/spatie/laravel-permission
 Start docker containers
 ```
 docker-compose up -d
+docker exec -it cryptoscoreboard_web_1 bash
+```
+When inside docker
+```bash
 composer install
 cp .env.test .env
 php artisan storage:link
