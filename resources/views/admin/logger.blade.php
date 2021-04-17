@@ -9,7 +9,7 @@
         </div>
 
         <div class="row">
-            <iframe src="/telescope" width="100%" height="600"></iframe>
+            <iframe src="/logger" width="100%" height="600"></iframe>
         </div>
     </div>
 @endsection
