@@ -1,9 +1,10 @@
 describe('admin', () => {
     before(() => {
+        cy.clearCookies()
         cy.login(Cypress.env('adminEmail'),Cypress.env('adminPassword')).visit('/admin/')
     })
     beforeEach(() => {
-        Cypress.Cookies.preserveOnce('cryptoscoreboard_session', 'XSRF-TOKEN')
+        Cypress.Cookies.preserveOnce('cryptoscoreboard_session', 'XSRF-TOKEN', 'ugid')
     })
 
     it('view dashboard', () => {

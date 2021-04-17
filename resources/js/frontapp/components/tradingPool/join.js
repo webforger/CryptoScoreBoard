@@ -24,7 +24,7 @@ const Join = (props) => {
 
     if (canJoin) {
         return (
-            <a className={"btn btn-primary"} onClick={joinTradingPool}>
+            <a data-cy={"join_pool"} className={"btn btn-primary"} onClick={joinTradingPool}>
                 JOIN
             </a>
         );
