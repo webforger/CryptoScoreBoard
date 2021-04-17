@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Pair extends Model
 {
@@ -31,5 +32,12 @@ class Pair extends Model
      */
     public function ticker() : string {
         return $this->coinFrom->alias . '/' . $this->coinTo->alias;
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function tradingTypes() : BelongsToMany {
+        return $this->belongsToMany(tradingType::class);
     }
 }

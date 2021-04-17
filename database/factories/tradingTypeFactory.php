@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Pair;
 use App\Models\tradingType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,8 +22,7 @@ class tradingTypeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'pair_id' => Pair::all()->random()->id
+            'name' => $this->faker->name
         ];
     }
 }
