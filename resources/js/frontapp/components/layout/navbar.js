@@ -16,8 +16,8 @@ const Nav = (props) => {
         })
     };
     const authLink = props.loggedIn
-        ? <MenuLogout logout={logout} text={"Log out"} icon={"fas fa-sign-out-alt"} />
-        : <MenuItem text={"Log in"} to={"/login"} icon={"fas fa-sign-in-alt"} additionalClasses={"absolute__bottom"} />
+        ? <MenuLogout logout={logout} text={"Log out"} icon={"fas fa-sign-out-alt"} name={"logout"}/>
+        : <MenuItem text={"Log in"} to={"/login"} icon={"fas fa-sign-in-alt"} additionalClasses={"absolute__bottom"} name={"login"} />
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -31,8 +31,8 @@ const Nav = (props) => {
                 <span></span>
             </label>
             <ul className={"menu__box"}>
-                <MenuItem activeOnlyWhenExact={true} text={"Home"} to={"/"} icon={"fas fa-home"} />
-                <MenuItem text={"Coffee"} to={"/coffee"} icon={"fas fa-coffee"} />
+                <MenuItem activeOnlyWhenExact={true} text={"Home"} to={"/"} icon={"fas fa-home"} name={"home"} />
+                <MenuItem text={"Coffee"} to={"/coffee"} icon={"fas fa-coffee"} name={"coffee"} />
                 {authLink}
             </ul>
         </nav>
