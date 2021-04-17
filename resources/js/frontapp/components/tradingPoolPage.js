@@ -47,7 +47,6 @@ const TradingPoolPage = (props) => {
                         </div>
                     </div>
                 </header>
-                <h1>{id}</h1>
                 {renderTradingPool()}
             </div>
         </div>
