@@ -50,7 +50,7 @@ const App = () => {
                     <Route path='/login' render={props => (
                         <Login {...props} login={login}/>
                     )}/>
-                    <Route path="/trading-pool/:id" exact={true} children={<TradingPoolPage user={user}/>} />
+                    <Route path="/trading-pool/:id" exact={true} children={<TradingPoolPage token={token} user={user}/>} />
                 </Suspense>
             </Switch>
         </Router>

@@ -28,8 +28,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
+    Route::get('trading-pool/join/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'join']);
+
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });
 
 Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
 Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);
+

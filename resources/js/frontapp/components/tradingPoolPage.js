@@ -28,7 +28,7 @@ const TradingPoolPage = (props) => {
             return (<Suspense fallback={<TradingPoolLoader />}>
                 <div>
                     <TradingPool tradingPool={tradingPools} />
-                    <Join canJoin={canJoinPool()}/>
+                    <Join token={props.token} id={id} canJoin={canJoinPool()}/>
                 </div>
             </Suspense>)
         }
