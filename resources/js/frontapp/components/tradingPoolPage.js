@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Suspense } from 'react';
 import Button from "./button";
 import {useParams} from "react-router-dom";
 import apiClient from "../services/apiClient";
-import TradingPool from "./tradingPool/tradingPool";
+const TradingPool = React.lazy(() => import('./tradingPool/tradingPool'));
 import TradingPoolLoader from "./tradingPool/tradingPoolLoader";
+import Join from "./tradingPool/join";
 
 const TradingPoolPage = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
@@ -24,8 +25,23 @@ const TradingPoolPage = (props) => {
         if (loading) {
             return <TradingPoolLoader />
         } else {
-            return <TradingPool tradingPool={tradingPools} />
+            return (<Suspense fallback={<TradingPoolLoader />}>
+                <div>
+                    <TradingPool tradingPool={tradingPools} />
+                    <Join token={props.token} id={id} canJoin={canJoinPool()}/>
+                </div>
+            </Suspense>)
         }
+    }
+
+    const canJoinPool = () => {
+        let canJoin = true;
+        for (const [key, user] of Object.entries(tradingPools.users)) {
+            if(user.id === props.user.id) {
+                canJoin = false;
+            }
+        }
+        return canJoin;
     }
 
     return (

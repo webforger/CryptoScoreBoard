@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import TradingPoolLoader from "./tradingPoolLoader";
 
 const TradingPool = (props) => {
     const USERS_TO_DISPLAY = 3;

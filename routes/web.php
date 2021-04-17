@@ -32,7 +32,7 @@ Route::get('/static', function () {
 
 Route::post('/user/profile-picture', [\App\Http\Controllers\UserController::class, 'upload'])->name('upload/user/profile-picture');
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware('can:access telescope')->group(function () {
     Route::get('/', function () {
         return view('admin/index')
             ->with('tradingPools', tradingPool::latest()->take(10)->get())
