@@ -14,6 +14,7 @@ Start docker containers
 docker-compose up -d
 composer install
 cp .env.test .env
+php artisan storage:link
 ```
 
 ### Build front app
