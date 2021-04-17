@@ -22,6 +22,9 @@ class InitAdminRole extends Migration
             $permission = Permission::create(['name' => $crud . ' tradingPools']);
             $role->givePermissionTo($permission);
         }
+
+        $permission = Permission::create(['name' => 'access telescope']);
+        $role->givePermissionTo($permission);
     }
 
     /**
@@ -38,5 +41,8 @@ class InitAdminRole extends Migration
             $permission = Permission::findByName($crud . ' tradingPools');
             $permission->delete();
         }
+
+        $permission = Permission::findByName('access telescope');
+        $permission->delete();
     }
 }

@@ -68,6 +68,17 @@
                 </div>
             </li>
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Logger
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/logger">
+                    <i class="fas fa-fw fa-link"></i>
+                    <span>Logger</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -322,13 +333,6 @@
         </div>
         <!-- End of Content Wrapper -->
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
-                </div>
-            </div>
-        </footer>
         <!-- End of Footer -->
     </div>
     <!-- End of Page Wrapper -->

@@ -18,13 +18,5 @@ Route::middleware('auth:sanctum')->get('/users/{user}', function (Request $reque
     return $request->user();
 });
 
-Route::group(['middleware' => ['web']], function () {
-    Route::post('login','LoginController@authenticate');
-    Route::post('register','RegisterController@register');
-    Route::post('logout','LoginController@logout');
-    Route::post('password/email','ForgotPasswordController@sendResetLinkEmail');
-    Route::post('password/reset','ResetPasswordController@reset');
-});
-
 Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
 Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);

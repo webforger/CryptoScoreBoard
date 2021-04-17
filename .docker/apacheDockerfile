@@ -3,7 +3,7 @@ FROM php:7.3-apache
 # Download script to install PHP extensions and dependencies
 ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
-RUN chmod uga+x /usr/local/bin/install-php-extensions && sync >/dev/null 
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync >/dev/null
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
@@ -29,7 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
       xsl \
       zip \
       sockets \
-      && a2enmod rewrite >/dev/null 
+      && a2enmod rewrite >/dev/null
 
 # Install Composer.
 ENV PATH=$PATH:/root/composer2/vendor/bin:/root/composer1/vendor/bin \
@@ -50,5 +50,5 @@ RUN cd /opt \
 
   COPY .docker/php/php.ini /usr/local/etc/php/php.ini
   COPY .docker/laravel.conf /etc/apache2/sites-available/000-default.conf
-  
+
   RUN service apache2 restart
