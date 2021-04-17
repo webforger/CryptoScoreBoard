@@ -11,7 +11,6 @@ before_install:
   - cp .env.travis .env
   - rm cypress.json
   - cp cypress.json.travis cypress.json
-  - php artisan storage:link
 install:
   - composer install
   - php artisan migrate
