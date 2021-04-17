@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pair;
 use App\Models\pnl;
 use App\Models\trade;
 use App\Models\tradingPeriod;
@@ -35,5 +36,9 @@ class tradingPoolSeeder extends Seeder
 
         trade::factory($this::TRADES_PER_POOL * $this::TRADING_POOLS)->create();
 
+        foreach(pair::all() as $pairs){
+            $tradingType = tradingType::all()->random()->id;
+            $pairs->tradingTypes()->attach($tradingType);
+        }
     }
 }

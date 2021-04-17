@@ -51,6 +51,11 @@ class CreatePairsAndCoinsTable extends Migration
             'coin1' => $coinFrom->id,
             'coin2' => $coinTo->id
         ]);
+
+        Pair::create([
+            'coin1' => $coinTo->id,
+            'coin2' => $coinFrom->id
+        ]);
     }
 
     /**
