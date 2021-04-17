@@ -68,6 +68,17 @@
                 </div>
             </li>
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Logger
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/logger">
+                    <i class="fas fa-fw fa-link"></i>
+                    <span>Logger</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 

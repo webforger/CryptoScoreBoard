@@ -40,6 +40,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             ->with('tradingPoolsUsersCount', \App\Models\tradingPoolUser::count());
     })->name('dashboard');
 
+    Route::get('/logger', function () {
+        return view('admin/logger');
+    });
+
     Route::get('/trading-pools/', function () {
         return view('admin/tradingpool/list')
             ->with('tradingPools', tradingPool::all());
