@@ -30,6 +30,8 @@ Route::get('/static', function () {
     return view('static');
 });
 
+Route::post('/user/profile-picture', [\App\Http\Controllers\UserController::class, 'upload'])->name('upload/user/profile-picture');
+
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('admin/index')
