@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\tradingType;
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -95,10 +93,10 @@ class PoolsTables extends InitProjectDatabase
             $table->foreign('pair_id')->references('id')->on($this::DB_PAIRS_NAME);
         });
 
-        tradingType::create([
+/*        tradingType::create([
             'pair_id' => 1,
             'name' => 'Spot'
-        ]);
+        ]);*/
     }
 
     /**

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class tradingType extends Model
 {
@@ -20,10 +20,11 @@ class tradingType extends Model
         return $this->belongsTo(tradingPool::class);
     }
 
+
     /**
-     * @return HasOne
+     * @return BelongsToMany
      */
-    public function pair() : HasOne {
-        return $this->hasOne(Pair::class, 'id', 'pair_id');
+    public function pairs() : BelongsToMany {
+        return $this->belongsToMany(Pair::class);
     }
 }
