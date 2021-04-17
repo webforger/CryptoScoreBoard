@@ -14,7 +14,7 @@ class UsersProfilePicture extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('picture')->default('user_1.svg');
+            $table->string('picture')->default('/images/users/user_1.svg');
         });
     }
 

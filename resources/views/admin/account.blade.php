@@ -9,6 +9,11 @@
             </div>
 
             <div class="row">
+                <form action="{{route('upload/user/profile-picture')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="image">
+                    <input type="submit" value="Upload">
+                </form>
             </div>
         </div>
 @endsection
