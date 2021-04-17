@@ -29,4 +29,8 @@ describe('admin', () => {
         cy.url().should('include', 'trading-pool/');
     })
 
+    it('open tradingPool 1', () => {
+        cy.visit('/admin/trading-pool/1')
+    })
+
 })

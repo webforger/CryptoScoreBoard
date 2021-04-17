@@ -8,7 +8,7 @@ use App\Models\tradingType;
 class UpdateTradingTypes extends Migration
 {
 
-    CONST DB_TRADING_TYPE_PAIRS_NAME = 'trading_type_pair';
+    CONST DB_TRADING_TYPE_PAIRS_NAME = 'pair_trading_type';
     CONST DB_TRADING_TYPES_NAME = 'trading_types';
     CONST DB_PAIRS_NAME = 'pairs';
 
