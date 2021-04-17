@@ -37,9 +37,7 @@ class TradingPoolApiController extends Controller
             return $this->success($tradingPool, 'User attached successfully');
         }
     }
-
-
-
+    
     /**
      * Fetch every trading Pool and return it with pagination and it's relations
      * @return \Illuminate\Http\JsonResponse
