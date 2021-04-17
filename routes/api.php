@@ -18,5 +18,7 @@ Route::middleware('auth:sanctum')->get('/users/{user}', function (Request $reque
     return $request->user();
 });
 
+Route::get('permissions', [\App\Http\Controllers\Api\UserApiController::class, 'fetchPermissions'])->middleware('auth:sanctum');;
+
 Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
 Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);

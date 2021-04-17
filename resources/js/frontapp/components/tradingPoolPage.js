@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Suspense } from 'react';
 import Button from "./button";
 import {useParams} from "react-router-dom";
 import apiClient from "../services/apiClient";
-import TradingPool from "./tradingPool/tradingPool";
+const TradingPool = React.lazy(() => import('./tradingPool/tradingPool'));
 import TradingPoolLoader from "./tradingPool/tradingPoolLoader";
 
 const TradingPoolPage = (props) => {
@@ -22,9 +22,11 @@ const TradingPoolPage = (props) => {
 
     const renderTradingPool = () => {
         if (loading) {
+            console.log("fetch api");
             return <TradingPoolLoader />
         } else {
-            return <TradingPool tradingPool={tradingPools} />
+            console.log("loaded");
+            return (<Suspense fallback={<TradingPoolLoader />}><TradingPool tradingPool={tradingPools} /></Suspense>)
         }
     }
 

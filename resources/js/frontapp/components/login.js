@@ -14,7 +14,7 @@ const Login = (props) => {
         setUnknownError(false);
         apiClient.get('/sanctum/csrf-cookie')
             .then(response => {
-                apiClient.post('/login', {
+                apiClient.post('/api/sanctum/login', {
                     email: email,
                     password: password
                 }).then(response => {

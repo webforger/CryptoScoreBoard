@@ -44,6 +44,15 @@ class User extends Authenticatable implements MustVerifyEmail
         'updated_at'
     ];
 
+    protected $appends = [
+        'permission'
+    ];
+
+    protected $with =[
+        'permissions',
+        'roles'
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -52,6 +61,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPermissionAttribute()
+    {
+        return $this->getAllPermissions();
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
