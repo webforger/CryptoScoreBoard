@@ -15,13 +15,13 @@ const App = () => {
         sessionStorage.getItem('token') || ''
     );
     const [user, setUser] = React.useState(
-        sessionStorage.getItem('user') || ''
+        JSON.parse(localStorage.getItem('user')) || ''
     );
     const login = (token) => {
         setLoggedIn(true);
         setToken(token);
         sessionStorage.setItem('loggedIn', true);
-        sessionStorage.setItem('user', token);
+        localStorage.setItem('token', token);
         const apiAuthClient = axios.create({
             baseURL: 'http://localhost',
             withCredentials: true,
@@ -30,7 +30,9 @@ const App = () => {
 
         apiAuthClient.get('/api/auth/me')
             .then( response => {
-                sessionStorage.setItem('user', response.data);
+                console.log("setUser" + JSON.stringify(response.data));
+                setUser(response.data);
+                localStorage.setItem('user', JSON.stringify(response.data));
             })
             .catch( response => {
                 console.error("Unable to fetch permissions : " + response);
@@ -43,12 +45,12 @@ const App = () => {
             <Switch>
                 <Suspense fallback={<FullPageLoader />}>
                     <Route path='/' exact render={props => (
-                        <Index {...props} token={token}/>
+                        <Index {...props} user={user}/>
                     )}/>
                     <Route path='/login' render={props => (
                         <Login {...props} login={login}/>
                     )}/>
-                    <Route path="/trading-pool/:id" token={token} exact={true} children={<TradingPoolPage/>} />
+                    <Route path="/trading-pool/:id" exact={true} children={<TradingPoolPage user={user}/>} />
                 </Suspense>
             </Switch>
         </Router>
