@@ -17,13 +17,15 @@ class DatabaseSeeder extends Seeder
     {
         // Create default test users
         // @TODO Maybe replace this by a test only endpoint that return a random user with role / pool etc
-        User::create([
+        $user = User::create([
             'name' => 'TEST ADMIN',
             'email' => 'admin@test.com',
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ]);
+
+        $user->assignRole('admin');
 
         // Create default test users
         User::create([
