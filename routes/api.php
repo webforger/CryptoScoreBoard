@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,17 @@ Route::middleware('auth:sanctum')->get('/users/{user}', function (Request $reque
     return $request->user();
 });
 
-Route::get('permissions', [\App\Http\Controllers\Api\UserApiController::class, 'fetchPermissions'])->middleware('auth:sanctum');;
+Route::post('/auth/register', [AuthController::class, 'register']);
+
+Route::post('/auth/login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/auth/me', function(Request $request) {
+        return auth()->user();
+    });
+
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
+});
 
 Route::get('trading-pools',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'index']);
 Route::get('trading-pool/{id}',[\App\Http\Controllers\Api\TradingPoolApiController::class, 'fetchOne']);

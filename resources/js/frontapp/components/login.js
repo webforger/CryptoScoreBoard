@@ -14,12 +14,12 @@ const Login = (props) => {
         setUnknownError(false);
         apiClient.get('/sanctum/csrf-cookie')
             .then(response => {
-                apiClient.post('/api/sanctum/login', {
+                apiClient.post('/api/auth/login', {
                     email: email,
                     password: password
                 }).then(response => {
                     if (response.status === 200) {
-                        props.login();
+                        props.login(response.data.data.token);
                         setToHome(true);
                     }
                 }).catch(error => {
