@@ -8,7 +8,7 @@ const TradingPool = (props) => {
 
             </div>
             <div className={"bottom"}>
-                <Link className={"btn btn-gold f-right mt-2 mr-3"} to={"/trading-pool/" + props.tradingPool.id}>
+                <Link data-cy={"open_trading_pool"} className={"btn btn-gold f-right mt-2 mr-3"} to={"/trading-pool/" + props.tradingPool.id}>
                     VIEW
                 </Link>
                 <p className={"pl-3"}>

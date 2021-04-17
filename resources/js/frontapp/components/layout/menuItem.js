@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import {Route} from 'react-router';
-const MenuItem = ({ icon, text, to, activeOnlyWhenExact, additionalClasses }) => {
+const MenuItem = ({ icon, text, to, activeOnlyWhenExact, additionalClasses, name }) => {
     return (
         <Route
             path={to}
@@ -10,6 +10,7 @@ const MenuItem = ({ icon, text, to, activeOnlyWhenExact, additionalClasses }) =>
                 <li key={to}>
                     <a
                         className={"menu__item " + additionalClasses + " " + (match ? 'active' : '')}
+                        data-cy={"menu-link_" + name}
                         onClick={() => {
                             history.push(to);
                         }}
