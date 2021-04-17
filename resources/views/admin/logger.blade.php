@@ -9,7 +9,9 @@
         </div>
 
         <div class="row">
-            <iframe src="/logger" width="100%" height="600"></iframe>
+            <div class="col-xl-12 col-lg-12">
+                <iframe src="/logger" width="100%" height="600"></iframe>
+            </div>
         </div>
     </div>
 @endsection
