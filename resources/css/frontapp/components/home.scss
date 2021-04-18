@@ -1,0 +1,37 @@
+@import '../variables';
+
+$mainHeaderHeight : 265px;
+$mainHeaderInnerHeight : 235px;
+
+#home-header {
+    height: $mainHeaderHeight;
+    .inner {
+        height: $mainHeaderInnerHeight;
+        margin: 0 auto;
+        top: $mainHeaderHeight - $mainHeaderInnerHeight;
+        background: #2B2E31;
+        border-radius: 8px;
+        position: relative;
+
+        h1 {
+            color: $white;
+            font-weight: 600;
+            font-size: 32px;
+
+            span {
+                color: $colorGold;
+            }
+        }
+    }
+}
+
+#main-chart {
+    display: block;
+    position: absolute;
+    top: - ($mainHeaderHeight - $mainHeaderInnerHeight);
+    right:0;
+    width: 100%;
+    height: $mainHeaderHeight;
+    border-radius: $borderRadius * 2;
+    background: #121241;
+}

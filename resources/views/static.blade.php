@@ -35,17 +35,34 @@
             </li>
         </ul>
     </nav>
-    <div id="container">
+    <section id="container">
         <div class="container-right">
-            <header class="main-header">
+            <nav class="main-header">
                 <p>test</p>
-            </header>
+            </nav>
             <p>test</p>
         </div>
-        <div class="container-left">
+        <div class="container-left px-4">
             <header class="main-header">
                 <p>test</p>
             </header>
+
+            <div class="row mb-4">
+                <header class="col-lg-12 px-4" id="home-header">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-lg-4 px-4">
+                                <h1>Free pools <br /><span>Join Now totally free</span></h1>
+                                <p>Trading Wars 2021</p>
+                                <a class="btn btn-secondary px-lg-5">JOIN NOW</a>
+                            </div>
+                            <div class="col-lg-8">
+                                <div id="main-chart">test</div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
 
             <div class="row px-2">
                 <div class="col-lg-3 px-4">
@@ -96,7 +113,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
