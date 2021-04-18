@@ -26,6 +26,23 @@ $size: 48px;
     }
 }
 
+.small-loader {
+    height:100%;
+    width: 100%;
+    section {
+        top:50%;
+        margin-top: - $size;
+        padding: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ccc;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+}
+
 .loader-98 {
     width: 24px;
     height: 80px;
