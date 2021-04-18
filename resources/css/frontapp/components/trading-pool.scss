@@ -1,4 +1,5 @@
 @use 'loading-background';
+@import '../variables';
 
 .trading-pool {
     position: relative;
@@ -8,6 +9,8 @@
     background: linear-gradient(157deg, #FF7BEA 0%, #EBA835 100%);
     border-radius: 16px 16px 16px 16px;
     overflow: hidden;
+    @include animateFast;
+
     .top {
 
     }

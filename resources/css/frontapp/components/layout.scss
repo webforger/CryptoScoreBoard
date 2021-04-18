@@ -168,6 +168,8 @@ nav#nav-bar {
     margin-right: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
+    @include animateFast;
+
     @media (max-width: $mediaQueryScreenTablet) {
         margin-right: 0px;
     }
@@ -179,6 +181,8 @@ nav#nav-bar {
     width: 300px;
     height: 100%;
     background: #1E2227;
+    @include animateFast;
+
     @media (max-width: $mediaQueryScreenTablet) {
         display: none;
     }

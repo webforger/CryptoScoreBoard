@@ -82,7 +82,9 @@ const Index = (props) => {
                     </div>
                 </header>
                 <HomeHeader />
-                {renderTradingPools()}
+                <div className={"px-2"}>
+                    {renderTradingPools()}
+                </div>
             </div>
         </div>
     );

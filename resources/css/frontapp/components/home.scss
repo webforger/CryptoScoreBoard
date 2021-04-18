@@ -12,6 +12,7 @@ $mainHeaderInnerHeight : 235px;
         background: #2B2E31;
         border-radius: 8px;
         position: relative;
+        @include animateFast;
 
         h1 {
             color: $white;
@@ -32,6 +33,7 @@ $mainHeaderInnerHeight : 235px;
             height: $mainHeaderHeight;
             border-radius: $borderRadius * 2;
             background: #121241;
+            @include animateFast;
 
             @media (max-width: $mediaQueryScreenTablet) {
                 position: relative;
