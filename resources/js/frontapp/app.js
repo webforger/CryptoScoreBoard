@@ -16,7 +16,6 @@ const App = () => {
     );
     const login = (token) => {
         setToken(token);
-        sessionStorage.setItem('loggedIn', true);
         sessionStorage.setItem('token', token);
         const apiAuthClient = axios.create({
             baseURL: 'http://localhost',
