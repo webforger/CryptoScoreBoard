@@ -8,20 +8,16 @@ const Login = React.lazy(() => import('./components/login'));
 const TradingPoolPage = React.lazy(() => import('./components/tradingPoolPage'));
 
 const App = () => {
-    const [loggedIn, setLoggedIn] = React.useState(
-        sessionStorage.getItem('loggedIn') == 'true' || false
-    );
     const [token, setToken] = React.useState(
         sessionStorage.getItem('token') || ''
     );
     const [user, setUser] = React.useState(
-        JSON.parse(localStorage.getItem('user')) || ''
+        JSON.parse(sessionStorage.getItem('user')) || ''
     );
     const login = (token) => {
-        setLoggedIn(true);
         setToken(token);
         sessionStorage.setItem('loggedIn', true);
-        localStorage.setItem('token', token);
+        sessionStorage.setItem('token', token);
         const apiAuthClient = axios.create({
             baseURL: 'http://localhost',
             withCredentials: true,
@@ -32,7 +28,7 @@ const App = () => {
             .then( response => {
                 console.log("setUser" + JSON.stringify(response.data));
                 setUser(response.data);
-                localStorage.setItem('user', JSON.stringify(response.data));
+                sessionStorage.setItem('user', JSON.stringify(response.data));
             })
             .catch( response => {
                 console.error("Unable to fetch permissions : " + response);
@@ -41,7 +37,7 @@ const App = () => {
 
     return (
         <Router>
-            <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user}/>
+            <Nav user={user} setUser={setUser}/>
             <Switch>
                 <Suspense fallback={<FullPageLoader />}>
                     <Route path='/' exact render={props => (
