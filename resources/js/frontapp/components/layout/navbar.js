@@ -10,14 +10,13 @@ const Nav = (props) => {
     const logout = () => {
         apiClient.post('/logout').then(response => {
             if (response.status === 204) {
-                props.setLoggedIn(false);
-                sessionStorage.setItem('loggedIn', false);
+                props.setUser('');
                 sessionStorage.removeItem('token');
-                localStorage.clear();
+                sessionStorage.removeItem('user');
             }
         })
     };
-    const authLink = props.loggedIn
+    const authLink = props.user
         ? <MenuLogout logout={logout} text={"Log out"} icon={"fas fa-sign-out-alt"} name={"logout"}/>
         : <MenuItem text={"Log in"} to={"/login"} icon={"fas fa-sign-in-alt"} additionalClasses={"absolute__bottom"} name={"login"} />
 

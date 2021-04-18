@@ -1,0 +1,14 @@
+$colorPrimary : #6B3EFA;
+$colorSecondary : #58BCDA;
+$colorPink : #FF7BEA;
+$colorGold : #EBA835;
+$colorLightBlue : #00FFE0;
+$white : #FFFFFF;
+$borderRadius : 8px;
+$mediaQueryScreenTablet : 1200px;
+
+@mixin animateFast {
+    transition-property: all;
+    transition-duration: .250s;
+    transition-timing-function: ease-in-out;
+}

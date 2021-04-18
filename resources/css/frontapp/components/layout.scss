@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 body {
     background: #17191B;
     color: #FFF;
@@ -166,7 +168,9 @@ nav#nav-bar {
     margin-right: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
-    @media (max-width: 1200px) {
+    @include animateFast;
+
+    @media (max-width: $mediaQueryScreenTablet) {
         margin-right: 0px;
     }
 }
@@ -177,18 +181,20 @@ nav#nav-bar {
     width: 300px;
     height: 100%;
     background: #1E2227;
-    @media (max-width: 1200px) {
+    @include animateFast;
+
+    @media (max-width: $mediaQueryScreenTablet) {
         display: none;
     }
 }
 
 header.main-header {
-    height: 40px;
+    height: 60px;
     width: 100%;
     position:relative;
     top:0;
     left:0;
-    padding: 4px 8px;
+    padding: 8px 8px;
 }
 
 .align-right {

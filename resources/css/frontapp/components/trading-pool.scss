@@ -1,16 +1,38 @@
 @use 'loading-background';
+@import '../variables';
 
 .trading-pool {
     position: relative;
     width: 100%;
-    height: 295px;
-    filter: drop-shadow(0px 4px 32px rgba(255, 123, 234, 0.5));
-    background: linear-gradient(157deg, #FF7BEA 0%, #EBA835 100%);
+    height: 335px;
     border-radius: 16px 16px 16px 16px;
     overflow: hidden;
+    @include animateFast;
+
+    &.gold-pink {
+        filter: drop-shadow(0px 4px 32px rgba(255, 123, 234, 0.5));
+        background: linear-gradient(157deg, $colorPink 0%, $colorGold 100%);
+    }
+
+    &.pink-gold {
+        filter: drop-shadow(0px 4px 32px rgba(255, 123, 234, 0.5));
+        background: linear-gradient(157deg, $colorGold 0%, $colorPink 100%);
+    }
+
+    &.blue-pink {
+        filter: drop-shadow(0px 4px 32px rgba(61, 224, 227, 0.5));
+        background: linear-gradient(157deg, $colorLightBlue 0%, $colorPink 100%);
+    }
+
+    &.pink-blue {
+        filter: drop-shadow(0px 4px 32px rgba(61, 224, 227, 0.5));
+        background: linear-gradient(157deg, $colorPink 0%, $colorLightBlue 100%);
+    }
+
     .top {
 
     }
+
     .bottom {
         position: absolute;
         width: 100%;

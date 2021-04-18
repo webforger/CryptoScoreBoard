@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 
 const TradingPool = (props) => {
     const USERS_TO_DISPLAY = 3;
+
+    const colors = ["gold-pink","pink-gold", "blue-pink", "pink-blue"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
     const renderUsers = () => {
         let users = [];
 
@@ -20,7 +24,7 @@ const TradingPool = (props) => {
     }
 
     return (
-        <div className={"trading-pool"} data-key={props.tradingPool.id} key={props.tradingPool.id}>
+        <div className={"trading-pool " + randomColor} data-key={props.tradingPool.id} key={props.tradingPool.id}>
             <div className={"top"}>
                 {renderUsers()}
             </div>

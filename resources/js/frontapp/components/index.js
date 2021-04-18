@@ -3,6 +3,7 @@ import apiClient from '../services/apiClient';
 import TradingPoolLoaderLine from "./tradingPool/tradingPoolLoaderLine";
 import TradingPool from "./tradingPool/tradingPool"
 import Button from "./button";
+import HomeHeader from "./homeHeader";
 
 const Index = (props) => {
     const [tradingPools, setTradingPools] = React.useState([]);
@@ -80,7 +81,10 @@ const Index = (props) => {
                         </div>
                     </div>
                 </header>
-                {renderTradingPools()}
+                <HomeHeader />
+                <div className={"px-2"}>
+                    {renderTradingPools()}
+                </div>
             </div>
         </div>
     );

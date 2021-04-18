@@ -1,3 +1,7 @@
+@import '../variables';
+
+$hoverDarkenPerentage : 10%;
+
 .btn {
     display: inline-block;
     border-radius: 8px;
@@ -7,31 +11,53 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 400;
+    @include animateFast;
 
     &.btn-primary {
-        background: #6B3EFA;
+        background: $colorPrimary;
+        &:hover, &.active, &:focus {
+            background: darken($colorPrimary, $hoverDarkenPerentage);
+        }
     }
     &.btn-secondary {
-        background: #58BCDA;
+        background: $colorSecondary;
+        &:hover, &.active, &:focus {
+            background: darken($colorSecondary, $hoverDarkenPerentage);
+        }
     }
     &.btn-pink {
-        background: #FF7BEA;
+        background: $colorPink;
+        &:hover, &.active, &:focus {
+            background: darken($colorPink, $hoverDarkenPerentage);
+        }
     }
     &.btn-gold {
-        background: #EBA835;
+        background: $colorGold;
+        &:hover, &.active, &:focus {
+            background: darken($colorGold, $hoverDarkenPerentage);
+        }
     }
     &:disabled, &.disabled {
         background: #535353;
         color: #C0C0C0;
+        &:hover, &.active, &:focus {
+            background: darken(#535353, $hoverDarkenPerentage);
+        }
     }
     &.btn-outline-primary {
         border: 1px solid #7517F8;
         box-sizing: border-box;
         border-radius: 12px;
+        &:hover, &.active, &:focus {
+            border-color: darken($colorPrimary, $hoverDarkenPerentage);
+        }
     }
     &.btn-outline-secondary {
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-sizing: border-box;
         border-radius: 12px;
+        &:hover, &.active, &:focus {
+            border-color: darken($colorPrimary, $hoverDarkenPerentage);
+        }
     }
 }
