@@ -70,6 +70,17 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
+                Panels
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/users">
+                    <i class="fa fa-user"></i>
+                    <span>User panel</span>
+                </a>
+            </li>
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
                 Logger
             </div>
 
