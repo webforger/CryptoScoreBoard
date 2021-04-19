@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\tradingPool;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
 
@@ -57,6 +58,8 @@ Route::prefix('admin')->middleware('can:access telescope')->group(function () {
     Route::get('/account', function () {
         return view('admin/account');
     });
+
+    Route::get('/users', [\App\Http\Controllers\UserController::class, 'userPanelData']);
 });
 
 Route::get('/admin/login', function () {

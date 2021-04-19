@@ -34,4 +34,8 @@ describe('admin', () => {
         cy.visit('/admin/trading-pool/1')
     })
 
+    it('open user panel', () => {
+        cy.visit('/admin/users')
+    })
+
 })
